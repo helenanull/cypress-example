@@ -2,13 +2,25 @@
 
 # Setup
 
-npm install
+`npm install`
 
 # run tests
 
-//todo
+cypress test runner (cypress __open__):
 
-__Following best practices__
+`npm run cypress open --env device=mob`
+
+`npm run cypress open --env device=web`
+
+
+cypress __headless mode__ (cypress run):
+
+`npm run cypress run --env device=mob`
+
+`npm run cypress run --env device=web`
+
+
+# __Following best practices__
 
 0. KISS [keep it simple, stupid]
 2. Using shortcuts to test only one feature at a time
