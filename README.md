@@ -27,7 +27,7 @@ Configuration files:
 1. cypress.json
 2. plugins/index.js
 
-Custom commands (shortcuts) are located in support folder (`.cmd.js` suffix)
+Custom commands (shortcuts) are located in `cypress/support` folder (`.cmd.js` suffix)
 
 Why mobile view is in config and not in test (like cy.viewport())?
 - we can't change userAgent in the middle of the test:
