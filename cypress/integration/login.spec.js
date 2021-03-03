@@ -1,4 +1,4 @@
-import loginPage from '../selectors/login.sel'
+import login from '../selectors/login.sel'
 
 describe('Login', () => {
     beforeEach(() => {
@@ -8,17 +8,17 @@ describe('Login', () => {
     })
 
     it('can see error message when username/password incorrect', () => {
-        cy.get(loginPage.emailField).type('random@test.com')
-        cy.get(loginPage.passwordField).type('random_pass')
-        cy.get(loginPage.signInButton).should('have.text', 'Sign in').click()
-        cy.get(loginPage.errorMessages).should('be.visible')
+        cy.get(login.emailField).type('random@test.com')
+        cy.get(login.passwordField).type('random_pass')
+        cy.get(login.signInButton).should('have.text', 'Sign in').click()
+        cy.get(login.errorMessages).should('be.visible')
             .and('have.text', 'email or password is invalid')
     })
 
     it('can press enter to log in', () => {
-        cy.get(loginPage.emailField).type('random2@test.com')
-        cy.get(loginPage.passwordField).type('random_pass{enter}')
-        cy.get(loginPage.errorMessages).should('be.visible')
+        cy.get(login.emailField).type('random2@test.com')
+        cy.get(login.passwordField).type('random_pass{enter}')
+        cy.get(login.errorMessages).should('be.visible')
             .and('have.text', 'email or password is invalid')
     })
 })

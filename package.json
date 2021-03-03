@@ -1,13 +1,13 @@
 {
   "name": "cypress-example",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cy:open:mob": "cypress open --env device=mob",
+    "cy:open:web": "cypress open --env device=web",
+    "cy:run:mob": "cypress run --env device=mob",
+    "cy:run:web": "cypress run --env device=web"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "cypress": "^6.6.0",
     "eslint": "^7.21.0"
