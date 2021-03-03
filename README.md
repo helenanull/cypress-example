@@ -21,6 +21,8 @@ cypress __headless mode__ (cypress run):
 
 # Information
 
+Goal is to have full E2E suite, that is easily understandable even to people without previous JS or Cypress knowledge.
+
 Tests are located in `cypress/integration` folder
 
 Configuration files:
