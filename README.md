@@ -1,10 +1,10 @@
 # example tests using cypress __[and keeping it simple]__
 
-# Setup
+# 1. Setup
 
 `npm install`
 
-# run tests
+# 2. Run tests
 
 cypress test runner (cypress __open__):
 
@@ -18,6 +18,8 @@ cypress __headless mode__ (cypress run):
 `npm run cypress run --env device=mob`
 
 `npm run cypress run --env device=web`
+
+
 
 
 # __Following best practices__
