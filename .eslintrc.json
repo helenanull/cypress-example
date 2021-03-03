@@ -1,0 +1,47 @@
+{
+    "plugins": [
+        "cypress",
+        "chai-friendly"
+    ],
+    "env": {
+        "browser": true,
+        "cypress/globals": true
+    },
+    "extends": "airbnb",
+    "rules": {
+        "no-param-reassign": "off",
+        "prefer-destructuring": "off",
+        "no-use-before-define": [ 2, { "functions": false } ],
+        "object-shorthand": [
+            "error",
+            "never"
+        ],
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "no-unused-expressions": 0,
+        "func-names": 0,
+        "chai-friendly/no-unused-expressions": 2,
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": 0,
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "never"
+        ]
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        },
+        "sourceType": "module"
+    }
+}

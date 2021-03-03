@@ -1,9 +1,11 @@
 {
-    "baseUrl": "https://angular.realworld.io",
+    "baseUrl": "http://angularjs.realworld.io/#",
     "numTestsKeptInMemory": 5,
     "defaultCommandTimeout": 10000,
     "experimentalFetchPolyfill": true,
     "env": {
-        "device": "desktop"
+        "device": "desktop",
+        "email": "test@test.com",
+        "password": "Testtest1"
     }
 }

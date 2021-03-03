@@ -1,6 +1,6 @@
 module.exports = {
-    emailField = '[placeholder=Email]',
-    passwordField = '[placeholder=Password]',
-    signInButton = '.btn',
-    errorMessages = '.error-messages li'
+    emailField: '[placeholder=Email]',
+    passwordField: '[placeholder=Password]',
+    signInButton: '.btn',
+    errorMessages: '.error-messages li'
 }
