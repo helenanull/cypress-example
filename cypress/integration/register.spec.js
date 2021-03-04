@@ -2,7 +2,7 @@ import registration from '../selectors/register.sel'
 import header from '../selectors/header.sel'
 
 describe('Register', () => {
-    // actually we should not use let here, check register_aliases.spec
+    // actually we should not use let here, check register_better.spec for a better solution
     // https://docs.cypress.io/guides/core-concepts/variables-and-aliases.html#Aliases
     let username
     let email

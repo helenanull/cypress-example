@@ -1,7 +1,7 @@
 import registration from '../selectors/register.sel'
 import header from '../selectors/header.sel'
 
-describe('Register', () => {
+describe('Register - duplicate of register.spec', () => {
     beforeEach(() => {
         // we need random username and email each test
         const random = `cy${Math.random().toString().slice(2, 8)}`
