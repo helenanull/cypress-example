@@ -1,7 +1,7 @@
 # Full E2E test suite with Cypress.io (for site:http://angularjs.realworld.io/) [WIP] 
 
 Goals:
-- keep it simple - no abstractions/functions/utils/helpers
+- keep it simple - no 'custom' abstractions/functions/utils/helpers (use what Cypress provides)
 - tests are easily readable
 - project is easily understandable even to people without previous JS or Cypress knowledge
 
