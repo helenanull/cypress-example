@@ -3,7 +3,9 @@ import article from '../selectors/article.sel'
 
 describe('Article', () => {
     beforeEach(() => {
-        cy.login()
+        cy.register().then((email) => {
+            cy.login(email)
+        })
         cy.visit('/editor/')
     })
 

@@ -14,7 +14,6 @@ Cypress.Commands.add('register', () => {
     })
         .then((response) => {
             expect(response.status).to.eq(200)
-            Cypress.env('email', email)
             return email
         })
 })
