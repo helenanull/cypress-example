@@ -38,7 +38,7 @@ Configuration files:
 Custom commands (shortcuts) are located in `cypress/support` folder (`.cmd.js` suffix)
 
 Selectors are located in `cypress/selectors` folder [only difference from cypress default project structure]
-- __not__ using page objects pattern but keeping selectors (only selectors) separately as they are not easily readable
+- __not__ using page objects pattern but keeping selectors (only selectors) separately as they are not easily readable and sometimes we need to share selectors between tests, like header my account button in login test
 
 # Q&A
 1. Why mobile view is in config and not in test (like cy.viewport())?
