@@ -9,23 +9,31 @@ Goals:
 
 
 # 1. Setup
+`git clone https://github.com/helenanull/cypress-example.git`
 
-`npm install`
+cd to `cypress-example` folder and run `npm install`
+
 
 # 2. Run tests
 
+- If you installed Cypress via npm: 
+
 cypress test runner (cypress __open__):
 
-`npm run cypress open --env device=mob`
+`npm run cy:open:web` OR `cypress open --env device=web`
 
-`npm run cypress open --env device=web`
+`npm run cy:open:mob` OR `cypress open --env device=mob`
 
 
 cypress __headless mode__ (cypress run):
 
-`npm run cypress run --env device=mob`
+`npm run cy:run:web` OR `cypress run --env device=web`
 
-`npm run cypress run --env device=web`
+`npm run cy:run:mob` OR `cypress run --env device=mob`
+
+- If you installed Cypress zip:
+
+import **`cypress-example`** folder and you are good to go
 
 # Information
 
@@ -40,6 +48,7 @@ Custom commands (shortcuts) are located in `cypress/support` folder (`.cmd.js` s
 Selectors are located in `cypress/selectors` folder [only difference from cypress default project structure]
 - __not__ using page objects pattern but keeping selectors (only selectors) separately as they are not easily readable and sometimes we need to share selectors between tests, like header my account button in login test
 
+
 # Q&A
 1. Why mobile view is in config and not in test (like cy.viewport())?
 - we can't change userAgent in the middle of the test:
@@ -47,7 +56,7 @@ https://github.com/cypress-io/cypress/issues/2100
 So it seems more correct to launch the tests with the correct config (--env device=mob/web)
 
 
-# __Following best practices__
+# Links
 
 1. https://www.youtube.com/watch?v=5XQOK0v_YRE&ab_channel=OKG%21
 2. https://docs.cypress.io/guides/references/best-practices.html
