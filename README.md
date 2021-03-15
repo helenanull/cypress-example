@@ -43,9 +43,9 @@ Selectors are located in `cypress/selectors` folder [only difference from cypres
 
 ## :grey_question: Q&A
 1. Why mobile view is in config and not in test (like cy.viewport())?
-- we can't change userAgent in the middle of the test:
-https://github.com/cypress-io/cypress/issues/2100
-So it seems more correct to launch the tests with the correct config (--env device=mob/web)
+    - we can't change userAgent in the middle of the test:
+        https://github.com/cypress-io/cypress/issues/2100
+        So it seems more correct to launch the tests with the correct config (--env device=mob/web)
 
 
 ## :link: Links
