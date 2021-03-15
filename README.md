@@ -20,16 +20,14 @@ cd to `cypress-example` folder and run `npm install`
 
 cypress test runner (cypress __open__):
 
-`npm run cy:open:web` OR `cypress open --env device=web`
+`npm run cy:open:web` OR `cypress open --env device=web` (change web to mob to switch to mobile view)
 
-`npm run cy:open:mob` OR `cypress open --env device=mob`
 
 
 cypress __headless mode__ (cypress run):
 
 `npm run cy:run:web` OR `cypress run --env device=web`
 
-`npm run cy:run:mob` OR `cypress run --env device=mob`
 
 - If you installed Cypress zip:
 
