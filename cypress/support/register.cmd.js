@@ -14,6 +14,10 @@ Cypress.Commands.add('register', () => {
     })
         .then((response) => {
             expect(response.status).to.eq(200)
-            return email
+            cy.log('**user created**')
+            cy.log(`**email: ${email}**`)
+            cy.log('**password: Testtest1**')
         })
+        // return email so that we can use that to log in
+        .then(() => email)
 })
