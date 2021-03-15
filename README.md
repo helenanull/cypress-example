@@ -1,5 +1,5 @@
 # Full E2E test suite with Cypress.io
-## site:http://angularjs.realworld.io/ [WIP] 
+> **site:** http://angularjs.realworld.io/ [WIP] 
 
 ## :goal_net: Goals:
 - keep it simple - no 'custom' abstractions/functions/utils/helpers (use what Cypress provides)
