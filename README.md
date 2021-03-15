@@ -1,4 +1,4 @@
-# ![GitHub Logo](https://pbs.twimg.com/profile_images/1044345247440896001/pXI1GDHW_50x50.jpg) Full E2E test suite with Cypress 
+# Full E2E test suite with Cypress
 > **site:** http://angularjs.realworld.io/ [WIP] 
 
 ## :goal_net: Goals:
