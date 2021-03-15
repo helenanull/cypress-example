@@ -1,4 +1,4 @@
-# Full E2E test suite with Cypress <img src="https://pbs.twimg.com/profile_images/1044345247440896001/pXI1GDHW_400x400.jpg" width="40"/>
+# .<img src="https://pbs.twimg.com/profile_images/1044345247440896001/pXI1GDHW_400x400.jpg" width="45"/>Full E2E test suite with Cypress 
 > **site:** http://angularjs.realworld.io/ [WIP] 
 
 ## :goal_net: Goals:
