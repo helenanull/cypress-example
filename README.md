@@ -8,32 +8,25 @@ Goals:
 ![image](https://user-images.githubusercontent.com/48861601/110022516-af6f2400-7d34-11eb-8b13-f21789331cb3.png)
 
 
-# 1. Setup
+# :gear: Setup
+
 `git clone https://github.com/helenanull/cypress-example.git`
 
 cd to `cypress-example` folder and run `npm install`
 
 
-# 2. Run tests
+# :heavy_check_mark: Run tests
 
 - If you installed Cypress via npm: 
-
-cypress test runner (cypress __open__):
-
-`npm run cy:open:web` OR `cypress open --env device=web` (change web to mob to switch to mobile view)
-
-
-
-cypress __headless mode__ (cypress run):
-
-`npm run cy:run:web` OR `cypress run --env device=web`
-
-
+    - cypress test runner (cypress __open__):
+      - **`npm run cy:open:web`** OR `cypress open --env device=web` (change web to mob to switch to mobile view)
+    
+    - cypress __headless mode__ (cypress run):
+      - `npm run cy:run:web` OR `cypress run --env device=web`
 - If you installed Cypress zip:
+    - import **`cypress-example`** folder and you are good to go
 
-import **`cypress-example`** folder and you are good to go
-
-# Information
+# :bulb: Information
 
 Tests are located in `cypress/integration` folder
 
@@ -47,14 +40,14 @@ Selectors are located in `cypress/selectors` folder [only difference from cypres
 - __not__ using page objects pattern but keeping selectors (only selectors) separately as they are not easily readable and sometimes we need to share selectors between tests, like header my account button in login test
 
 
-# Q&A
+# :grey_question: Q&A
 1. Why mobile view is in config and not in test (like cy.viewport())?
 - we can't change userAgent in the middle of the test:
 https://github.com/cypress-io/cypress/issues/2100
 So it seems more correct to launch the tests with the correct config (--env device=mob/web)
 
 
-# Links
+# :link: Links
 
 1. https://www.youtube.com/watch?v=5XQOK0v_YRE&ab_channel=OKG%21
 2. https://docs.cypress.io/guides/references/best-practices.html
