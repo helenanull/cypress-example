@@ -43,7 +43,7 @@ Selectors are located in `cypress/selectors` folder [only difference from cypres
 ## :grey_question: Q&A
 1. Why keep selectors separately (not hard-coded to tests)
     - selector and test logic is separated - when selector is updated, we just need to update selector file and not tests
-    - css selectors are by nature hard to read - even if we add data-test attributes. We might need 2nd child or want to verify that selector is a child for another element, like `.class2 > ul:nth-child(2)` (alternative `get().find()` or `get().parent()` is bad practice because of [this](https://docs.cypress.io/guides/core-concepts/retry-ability.html#Only-the-last-command-is-retried)
+    - css selectors are by nature hard to read - even if we add data-test attributes. We might need 2nd child or want to verify that selector is a child for another element, like `.class2 > ul:nth-child(2)` (alternative `get().find()` or `get().parent()` is bad practice because of [this](https://docs.cypress.io/guides/core-concepts/retry-ability.html#Only-the-last-command-is-retried) )
     - in large projects, we might need to re-use the same selectors. Example: in login test, we want to verify that login was successful and we check settings link in header. But the same settings link is also tested in header test.
 3. Why mobile view is in config and not in test (like cy.viewport())?
     - we can't change userAgent in the middle of the test:
