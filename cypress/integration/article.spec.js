@@ -7,6 +7,7 @@ describe('Article', () => {
             cy.login(email)
         })
     })
+
     it('can create a new article', () => {
         cy.visit('/editor/')
         cy.get(editor.titleField).type('My post title')
