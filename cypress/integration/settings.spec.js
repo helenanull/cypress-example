@@ -4,8 +4,6 @@ import profile from '../selectors/profile.sel'
 describe('Settings', () => {
     beforeEach(() => {
         cy.register().then((email) => {
-            cy.wrap(email).as('email')
-            cy.wrap()
             cy.login(email)
         })
         cy.visit('/settings')
