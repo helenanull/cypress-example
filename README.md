@@ -1,4 +1,4 @@
-# Full E2E test suite with Cypress
+# **Simple** E2E test suite with Cypress
 > **site:** http://angularjs.realworld.io/ [WIP] 
 
 ## :goal_net: Goals:
