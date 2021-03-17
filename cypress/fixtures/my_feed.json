@@ -1,0 +1,26 @@
+{
+    "articles": [
+        {
+            "title": "Hello",
+            "slug": "kkk-y2bee3",
+            "body": "oiojojoj",
+            "createdAt": "2021-01-15T09:41:26.527Z",
+            "updatedAt": "2021-01-15T09:41:26.527Z",
+            "tagList": [
+                "cypress",
+                "is",
+                "great"
+            ],
+            "description": "description of the article",
+            "author": {
+                "username": "cypress",
+                "bio": null,
+                "image": "https://static.productionready.io/images/smiley-cyrus.jpg",
+                "following": true
+            },
+            "favorited": false,
+            "favoritesCount": 15
+        }
+    ],
+    "articlesCount": 1
+}
