@@ -46,7 +46,7 @@ Selectors are located in `cypress/selectors` folder [only difference from cypres
     - in large projects, we might need to re-use the same selectors. Example: in login test, we want to verify that login was successful and we check settings link in header. But the same settings link is also used in header test.
     - selector and test logic is separated - when selector is updated, we just need to update selector file and not tests
 2. Is it still E2E test if we use API to login in settings test?
-     - since end result will be the same - it will catch exactly the same bugs as `full flow/user journey` E2E test would find, (we need to be careful not to leave 'gaps' tho), it is E2E - tests are just separated and independent with this approach, **test suite is E2E**, one test might not be. 
+     - since end result will be the same - it will catch exactly the same bugs as `full flow/user journey` E2E test would find, (we need to be careful not to leave 'gaps' though), it is E2E - tests are just separated and independent with this approach, **test suite is E2E**, one test might not be. 
 4. Why mobile view is in config and not in test (like cy.viewport())?
     - we can't change userAgent in the middle of the test:
         https://github.com/cypress-io/cypress/issues/2100
