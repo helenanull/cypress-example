@@ -10,7 +10,7 @@ Cypress.Commands.add('createArticle', () => {
                 title: 'My Cypress article',
                 description: 'https://github.com/helenanull/cypress-example',
                 body: 'This article is created by createArticle Cypress command',
-                tagList: []
+                tagList: ['cypress', 'test-automation', 'simple']
             }
         }
     })
