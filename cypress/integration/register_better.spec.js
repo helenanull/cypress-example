@@ -17,7 +17,7 @@ describe('Register - duplicate of register.spec', () => {
         // added delay as sometimes it can make tests flaky if typing too fast (default is 10)
         cy.get(registration.usernameField).type(this.username, { delay: 50 })
         cy.get(registration.emailField).type(this.email)
-        cy.get(registration.passwordField).type('Testtest1')
+        cy.get(registration.passwordField).type('Cypress12')
         cy.get(registration.signUpButton).click()
         cy.get(header.settingsLink).should('be.visible')
     })
@@ -26,12 +26,12 @@ describe('Register - duplicate of register.spec', () => {
         cy.intercept('/api/users').as('loginRequest')
         cy.get(registration.usernameField).type(this.username)
         cy.get(registration.emailField).type(this.email)
-        cy.get(registration.passwordField).type('Testtest1{enter}')
+        cy.get(registration.passwordField).type('Cypress12{enter}')
 
         cy.wait('@loginRequest').then((xhr) => {
             // check request body
             expect(xhr.request.body.user.email).to.eq(this.email)
-            expect(xhr.request.body.user.password).to.eq('Testtest1')
+            expect(xhr.request.body.user.password).to.eq('Cypress12')
             expect(xhr.request.body.user.username).to.eq(this.username)
             // check response body
             expect(xhr.response.body.user.email).to.eq(this.email)

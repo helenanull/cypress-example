@@ -1,4 +1,4 @@
-import login from '../selectors/login.sel'
+import login, { passwordField } from '../selectors/login.sel'
 import header from '../selectors/header.sel'
 
 describe('Login', () => {
@@ -49,8 +49,10 @@ describe('Login', () => {
         })
 
         it('can log in', function () {
+            const password = Cypress.env('password')
+
             cy.get(login.emailField).type(this.email)
-            cy.get(login.passwordField).type('Testtest1')
+            cy.get(login.passwordField).type(password)
             cy.get(login.signInButton).click()
             cy.get(header.settingsLink).should('be.visible')
         })
