@@ -1,4 +1,4 @@
-import login, { passwordField } from '../selectors/login.sel'
+import login from '../selectors/login.sel'
 import header from '../selectors/header.sel'
 
 describe('Login', () => {
