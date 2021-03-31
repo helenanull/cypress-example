@@ -49,7 +49,7 @@ describe('Article', () => {
 
     it('can edit an article', () => {
         // we already know if creating an article works or not from the first test
-        // we can now use shortcut (cy.createArticle() command) to test other scenarios
+        // we can now use a shortcut (cy.createArticle() command) to test other scenarios
         cy.createArticle().then((link) => {
             cy.visit(`/editor/${link}`)
         })

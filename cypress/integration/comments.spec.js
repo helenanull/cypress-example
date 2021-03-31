@@ -14,12 +14,14 @@ describe('Comments', () => {
         })
     })
 
-    it('can add a comment to article', () => {
+    it('can add a comment to article', function () {
         cy.get(article.comments).should('have.length', 0)
         cy.get(article.commentField).type('Cypress comment')
         cy.get(article.postCommentButton).should('contain', 'Post Comment').click()
         cy.get(article.comments).should('be.visible')
             .and('have.length', 1)
         cy.get(article.commentField).should('have.value', '')
+        cy.get(article.commentUsername).should('be.visible')
+            .and('have.text', this.username)
     })
 })

@@ -6,5 +6,6 @@ module.exports = {
     tags: '.tag-list li',
     comments: '[ng-repeat*=".comments"] .card-block',
     commentField: '.card.comment-form textarea',
-    postCommentButton: '.card.comment-form .btn'
+    postCommentButton: '.card.comment-form .btn',
+    commentUsername: '.comment-author.ng-binding'
 }

@@ -21,11 +21,10 @@ describe('Profile page', () => {
 
     it('can see favorited articles', function () {
         const apiUrl = Cypress.env('apiUrl')
-        // we already test adding favorite in home spec, we know it works
-        // here we can use API to favourite an article (then we have tested it E2E)
-        // create a new article
+        // we already test adding favorite from UI in home spec
+        // here we can use API to favourite an article and bypass UI
         cy.createArticle().then((link) => {
-            // and then add newly created article to favorites
+            // add newly created article to favorites
             cy.request({
                 method: 'POST',
                 url: `${apiUrl}/articles/${link}/favorite`,
