@@ -18,4 +18,18 @@ describe('Profile page', () => {
             .and('have.css', 'color', 'rgb(92, 184, 92)')
         cy.get(profile.favouritedArticlesTab).should('be.visible')
     })
+
+    it('can see favorited articles', function () {
+        const apiUrl = Cypress.env('apiUrl')
+        // we already test adding favourites in home spec
+        // here we can mock my favourited articles list
+        cy.intercept(`${apiUrl}/articles?favorited=${this.username}&limit=5&offset=0*`, {
+            fixture: 'favorited_list'
+        })
+        cy.visit(`/@${this.username}`)
+        cy.get(profile.favouritedArticlesTab).click()
+        cy.get(profile.articles).should('be.visible')
+            .and('have.length', 1)
+            .and('contain', 'My Cypress article')
+    })
 })

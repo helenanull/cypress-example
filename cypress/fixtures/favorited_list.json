@@ -1,0 +1,26 @@
+{
+    "articles": [
+        {
+            "title": "My Cypress article",
+            "slug": "my-cypress-article-iuremk",
+            "body": "This article is created by createArticle Cypress command",
+            "createdAt": "2021-03-31T19:19:25.550Z",
+            "updatedAt": "2021-03-31T19:19:25.550Z",
+            "tagList": [
+                "simple",
+                "test-automation",
+                "cypress"
+            ],
+            "description": "https://github.com/helenanull/cypress-example",
+            "author": {
+                "username": "cy304152671",
+                "bio": null,
+                "image": "https://static.productionready.io/images/smiley-cyrus.jpg",
+                "following": false
+            },
+            "favorited": true,
+            "favoritesCount": 1
+        }
+    ],
+    "articlesCount": 1
+}
