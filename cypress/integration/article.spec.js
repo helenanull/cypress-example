@@ -90,7 +90,7 @@ describe('Article', () => {
         cy.visit('')
         cy.get(home.globalFeedTab).click()
         // articles are always changing on home page
-        // we want to make sure we favourited the correct article
+        // we want to make sure we favorited the correct article
         // so we save the first article slug to compare later
         cy.get(home.readMoreLink).should('have.attr', 'href').then((link) => {
             slug = link.split('/')[2]
@@ -99,7 +99,7 @@ describe('Article', () => {
             .should('have.css', 'background-color', 'rgb(92, 184, 92)')
         cy.wait('@addFavoriteReq')
 
-        // verify article was actually favourited
+        // verify article was actually favorited
         cy.request(`${apiUrl}/articles?favorited=${this.username}&limit=5&offset=0`).then((resp) => {
             expect(resp.body.articles[0].slug).to.eq(slug)
         })
