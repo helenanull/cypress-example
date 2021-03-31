@@ -4,6 +4,7 @@
     "defaultCommandTimeout": 10000,
     "experimentalFetchPolyfill": true,
     "env": {
+        "apiUrl": "https://conduit.productionready.io/api",
         "device": "desktop",
         "email": "test@test.com",
         "password": "Testtest1"

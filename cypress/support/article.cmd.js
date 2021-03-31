@@ -1,6 +1,8 @@
 Cypress.Commands.add('createArticle', () => {
+    const apiUrl = Cypress.env('apiUrl')
+
     cy.request({
-        url: 'https://conduit.productionready.io/api/articles',
+        url: `${apiUrl}/articles`,
         method: 'POST',
         headers: {
             authorization: `Token ${window.localStorage.getItem('jwtToken')}`

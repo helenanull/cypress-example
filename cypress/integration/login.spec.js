@@ -25,7 +25,9 @@ describe('Login', () => {
         })
 
         it('can see error message when API responds with 500', () => {
-            cy.intercept('https://conduit.productionready.io/api/users/login', {
+            const apiUrl = Cypress.env('apiUrl')
+
+            cy.intercept(`${apiUrl}/users/login`, {
                 method: 'POST',
                 statusCode: 500,
                 fixture: 'login_error'

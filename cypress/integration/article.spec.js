@@ -1,11 +1,13 @@
 import editor from '../selectors/editor.sel'
 import article from '../selectors/article.sel'
+import home from '../selectors/home.sel'
 
 describe('Article', () => {
     const articleLink = 'https://github.com/helenanull/cypress-example'
 
     beforeEach(() => {
         cy.register().then((email) => {
+            cy.wrap(email.split('@')[0]).as('username')
             cy.login(email)
         })
     })
@@ -78,5 +80,28 @@ describe('Article', () => {
             expect(req.response.statusCode).to.eq(200)
         })
         cy.url().should('eq', `${Cypress.config('baseUrl')}/`)
+    })
+
+    it('can favourite an article', function () {
+        const apiUrl = Cypress.env('apiUrl')
+        let slug = ''
+
+        cy.intercept('POST', '/api/articles/*/favorite').as('addFavoriteReq')
+        cy.visit('')
+        cy.get(home.globalFeedTab).click()
+        // articles are always changing on home page
+        // we want to make sure we favourited the correct article
+        // so we save the first article slug to compare later
+        cy.get(home.readMoreLink).should('have.attr', 'href').then((link) => {
+            slug = link.split('/')[2]
+        })
+        cy.get(home.firstFavoriteButton).click()
+            .should('have.css', 'background-color', 'rgb(92, 184, 92)')
+        cy.wait('@addFavoriteReq')
+
+        // verify article was actually favourited
+        cy.request(`${apiUrl}/articles?favorited=${this.username}&limit=5&offset=0`).then((resp) => {
+            expect(resp.body.articles[0].slug).to.eq(slug)
+        })
     })
 })

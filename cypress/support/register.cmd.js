@@ -1,8 +1,10 @@
 Cypress.Commands.add('register', () => {
+    const apiUrl = Cypress.env('apiUrl')
     const username = `cy${Math.random().toString().slice(2, 11)}`
     const email = `${username}@mailinator.com`
+
     cy.request({
-        url: 'https://conduit.productionready.io/api/users',
+        url: `${apiUrl}/users`,
         method: 'POST',
         body: {
             user: {

@@ -15,8 +15,10 @@ describe('Home page', () => {
     })
 
     it('contains correct elements when logged in', () => {
+        const apiUrl = Cypress.env('apiUrl')
+
         // mock my feed data
-        cy.intercept('https://conduit.productionready.io/api/articles/feed?limit=10*', {
+        cy.intercept(`${apiUrl}/articles/feed?limit=10*`, {
             fixture: 'my_feed'
         })
         cy.register().then((email) => {
