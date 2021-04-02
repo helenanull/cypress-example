@@ -1,5 +1,6 @@
 Cypress.Commands.add('createArticle', () => {
     const apiUrl = Cypress.env('apiUrl')
+    const link = 'https://github.com/helenanull/cypress-example'
 
     cy.request({
         url: `${apiUrl}/articles`,
@@ -9,10 +10,10 @@ Cypress.Commands.add('createArticle', () => {
         },
         body: {
             article: {
-                title: 'My Cypress article',
-                description: 'https://github.com/helenanull/cypress-example',
-                body: 'This article is created by createArticle Cypress command',
-                tagList: ['cypress', 'test-automation', 'simple']
+                title: 'Article created by Cypress test',
+                description: link,
+                body: `This article is created by createArticle Cypress command. See more: ${link}`,
+                tagList: ['cypress', 'simple', 'test-automation']
             }
         }
     })
