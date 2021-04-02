@@ -8,5 +8,9 @@
         "device": "desktop",
         "email": "test@test.com",
         "password": "Cypress123"
+    },
+    "retries":{
+        "runMode": 1,
+        "openMode": 0
     }
 }
