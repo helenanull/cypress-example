@@ -37,7 +37,7 @@ describe('Profile page', () => {
         cy.get(profile.favouritedArticlesTab).click()
         cy.get(profile.articles).should('be.visible')
             .and('have.length', 1)
-            .and('contain', 'My Cypress article')
+            .and('contain', 'Article created by Cypress test')
     })
 
     it('can see favorited articles - mock response', function () {
