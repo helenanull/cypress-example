@@ -12,7 +12,7 @@ Cypress.Commands.add('createArticle', () => {
             article: {
                 title: 'Article created by Cypress test',
                 description: link,
-                body: `This article is created by createArticle Cypress command. See more: ${link}`,
+                body: `This article is created with Cypress. See code here: ${link}`,
                 tagList: ['cypress', 'simple', 'test-automation']
             }
         }
