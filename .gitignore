@@ -3,5 +3,5 @@ bin-release/
 [Oo]bj/
 [Bb]in/
 /screenshots
-/videos
+cypress/videos
 /node_modules

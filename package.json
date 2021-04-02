@@ -7,7 +7,7 @@
     "cy:open:web": "cypress open --env device=web",
     "cy:run:mob": "cypress run --env device=mob",
     "cy:run:web": "cypress run --env device=web",
-    "cy:ci": "cypress run --env device=web --record --parallel --config projectId=urshkd"
+    "cy:ci": "cypress run --env device=web --record --parallel"
   },
   "devDependencies": {
     "cypress": "^6.8.0",

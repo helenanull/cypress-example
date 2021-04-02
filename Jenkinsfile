@@ -10,6 +10,7 @@ pipeline {
         stage('cypress parallel tests') {
             environment {
                 CYPRESS_RECORD_KEY = credentials('cypress-example-record-key')
+                CYPRESS_PROJECT_ID = credentials('cypress-example-project-id')
                 CYPRESS_trashAssetsBeforeRuns = 'false'
             }
 
