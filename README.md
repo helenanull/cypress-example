@@ -1,7 +1,9 @@
 # **Simple** E2E test suite with Cypress
 > **site:** http://angularjs.realworld.io/ [WIP] 
 
-## :goal_net: Goals:
+> **test results:** https://dashboard.cypress.io/projects/urshkd/runs
+
+## :goal_net: Goals
 - keep it simple - no 'custom' abstractions/functions/utils/helpers (use what Cypress provides)
 - tests are easily readable
 - project is easily understandable even to people without previous JS or Cypress knowledge
