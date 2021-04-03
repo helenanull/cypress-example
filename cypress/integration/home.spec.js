@@ -21,9 +21,7 @@ describe('Home page', () => {
         cy.intercept(`${apiUrl}/articles/feed?limit=10*`, {
             fixture: 'my_feed'
         })
-        cy.register().then((email) => {
-            cy.login(email)
-        })
+        cy.register()
         cy.visit('')
         cy.get(home.yourFeedTab).should('be.visible')
         cy.get(home.globalFeedTab).should('be.visible')

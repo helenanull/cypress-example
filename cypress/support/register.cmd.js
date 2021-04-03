@@ -5,6 +5,9 @@ Cypress.Commands.add('register', () => {
     const password = Cypress.env('password')
 
     cy.request({
+        // here we can't use just '/users' url because baseUrl is different than API url
+        // if they are the same,
+        // then we can just use: '/users' without prefix, like in visit() command
         url: `${apiUrl}/users`,
         method: 'POST',
         body: {
@@ -21,6 +24,16 @@ Cypress.Commands.add('register', () => {
             cy.log(`**email: ${email}**`)
             cy.log(`**password: ${password}**`)
         })
-        // return email so that we can use that to log in
-        .then(() => email)
+        .then((response) => {
+            expect(response.status).to.eq(200)
+            // user is also logged in after registering
+            // so we can just save token
+            window.localStorage.setItem('jwtToken', response.body.user.token)
+
+            return {
+                // we need email and username in tests
+                email: email,
+                username: username
+            }
+        })
 })

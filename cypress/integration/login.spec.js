@@ -42,9 +42,12 @@ describe('Login', () => {
     context('successful', () => {
         beforeEach(() => {
             // we need a new user
-            cy.register().then((email) => {
-                cy.wrap(email).as('email')
+            cy.register().then((response) => {
+                cy.wrap(response.email).as('email')
             })
+            // log out - clear cookies and localstorage
+            cy.clearCookies()
+            cy.clearLocalStorage()
             cy.visit('/login')
         })
 

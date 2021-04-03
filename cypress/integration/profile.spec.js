@@ -2,10 +2,9 @@ import profile from '../selectors/profile.sel'
 
 describe('Profile page', () => {
     beforeEach(() => {
-        cy.register().then((email) => {
+        cy.register().then((response) => {
             // we need username to visit profile url
-            cy.wrap(email.split('@')[0]).as('username')
-            cy.login(email)
+            cy.wrap(response.username).as('username')
         })
     })
 

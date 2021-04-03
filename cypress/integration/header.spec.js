@@ -12,9 +12,7 @@ describe('Header', () => {
     })
 
     it('contains correct elements when logged in', () => {
-        cy.register().then((email) => {
-            cy.login(email)
-        })
+        cy.register()
         cy.visit('')
         cy.get(header.navbarLinks).should('be.visible')
             .and('have.length', 4)

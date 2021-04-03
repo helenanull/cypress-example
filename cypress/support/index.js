@@ -14,7 +14,6 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './login.cmd'
 import './register.cmd'
 import './article.cmd'
 

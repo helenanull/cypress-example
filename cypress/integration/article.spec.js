@@ -3,12 +3,11 @@ import article from '../selectors/article.sel'
 import home from '../selectors/home.sel'
 
 describe('Article', () => {
-    const readMoreLink = 'https://github.com/helenanull/cypress-example'
+    const seeMoreLink = 'https://github.com/helenanull/cypress-example'
 
     beforeEach(() => {
-        cy.register().then((email) => {
-            cy.wrap(email.split('@')[0]).as('username')
-            cy.login(email)
+        cy.register().then((response) => {
+            cy.wrap(response.username).as('username')
         })
     })
 
@@ -16,7 +15,7 @@ describe('Article', () => {
         cy.visit('/editor/')
         cy.get(editor.titleField).type('My post title')
         cy.get(editor.aboutField).type('Cypress')
-        cy.get(editor.bodyField).type(`Cypress is so cool awyeah! ${readMoreLink}`)
+        cy.get(editor.bodyField).type(`Cypress is so cool awyeah! ${seeMoreLink}`)
         cy.get(editor.publishButton).click()
         cy.get(article.title).should('be.visible')
             .and('have.text', 'My post title')
@@ -26,7 +25,7 @@ describe('Article', () => {
         cy.visit('/editor/')
         cy.get(editor.titleField).type('My post title')
         cy.get(editor.aboutField).type('Cypress')
-        cy.get(editor.bodyField).type(`Cypress is so cool awyeah! ${readMoreLink}`)
+        cy.get(editor.bodyField).type(`Cypress is so cool awyeah! ${seeMoreLink}`)
         cy.get(editor.tagsField).type('cypress{enter}')
         cy.get(editor.tagsField).should('have.value', '')
         cy.get(editor.addedTags).should('be.visible')
@@ -57,14 +56,14 @@ describe('Article', () => {
             // to check field value, use have.value not have.text
             .and('have.value', 'Article created by Cypress test')
         cy.get(editor.aboutField).should('be.visible')
-            .and('have.value', readMoreLink)
+            .and('have.value', seeMoreLink)
         cy.get(editor.bodyField).clear()
-            .type(`Test can edit an article. ${readMoreLink}`)
+            .type(`Test can edit an article. ${seeMoreLink}`)
         cy.get(editor.publishButton).click()
         cy.url().should('contain', '/article/article-created-by-cypress-test-')
         cy.get(article.title).should('be.visible')
         cy.get(article.body).should('be.visible')
-            .and('have.text', `Test can edit an article. ${readMoreLink}`)
+            .and('have.text', `Test can edit an article. ${seeMoreLink}`)
     })
 
     it('can delete an article', () => {

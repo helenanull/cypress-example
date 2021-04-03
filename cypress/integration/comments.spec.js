@@ -2,9 +2,8 @@ import article from '../selectors/article.sel'
 
 describe('Comments', () => {
     beforeEach(() => {
-        cy.register().then((email) => {
-            cy.wrap(email.split('@')[0]).as('username')
-            cy.login(email)
+        cy.register().then((response) => {
+            cy.wrap(response.username).as('username')
         })
         cy.createArticle().then((link) => {
             cy.intercept('/api/articles/*/comments').as('commentsRequest')
