@@ -30,18 +30,17 @@
     - import **`cypress-example`** folder and you are good to go
 
 ## :bulb: Information
+#### :test_tube: Tests:
+:file_folder: Tests are located in `cypress/integration` folder
 
-Tests are located in `cypress/integration` folder
+:file_folder: Custom commands are located in `cypress/support` folder (`.cmd.js` suffix)
 
-Configuration files:
-1. `cypress.json`
-2. `plugins/index.js`
+:file_folder: Selectors (CSS selectors) are located in `cypress/selectors` folder [only difference from cypress default project structure] - __not__ using page objects pattern but keeping selectors (only selectors) separately [Read more](https://github.com/helenanull/cypress-example#grey_question-qa)
 
-Custom commands (shortcuts) are located in `cypress/support` folder (`.cmd.js` suffix)
-
-Selectors are located in `cypress/selectors` folder [only difference from cypress default project structure]
-- __not__ using page objects pattern but keeping selectors (only selectors) separately as they are not easily readable and sometimes we need to share selectors between tests
-
+#### :hammer_and_wrench: Configuration
+Config files:
+1. `cypress.json` - Main config file where default behavior of Cypress can be modified. [More info](https://docs.cypress.io/guides/references/configuration#cypress-json)
+2. `plugins/index.js` - Plugins file is where we can programmatically alter the resolved configuration [More info](https://docs.cypress.io/guides/tooling/plugins-guide#Use-Cases)
 
 ## :grey_question: Q&A
 1. Why keep selectors separately (not hard-coded to tests)
