@@ -7,5 +7,11 @@ module.exports = {
     comments: '[ng-repeat*=".comments"] .card-block',
     commentField: '.card.comment-form textarea',
     postCommentButton: '.card.comment-form .btn',
-    commentUsername: '.comment-author.ng-binding'
+    commentUsername: '.comment-author.ng-binding',
+    banner: '.banner',
+    author: '.banner .author',
+    followButton: '.banner follow-btn',
+    favoriteButton: '.banner favorite-btn',
+    actions: '.article-actions',
+    commentTextForLoggedOutUsers: 'p[show-authed=false]'
 }

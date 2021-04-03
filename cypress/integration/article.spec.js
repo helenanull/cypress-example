@@ -11,6 +11,26 @@ describe('Article', () => {
         })
     })
 
+    it('logged out user can see article page', function () {
+        cy.createArticle().then((link) => {
+            // log out to visit article as logged out user
+            cy.clearCookies()
+            cy.clearLocalStorage()
+            cy.visit(`/article/${link}`)
+        })
+        cy.get(article.title).should('be.visible')
+        cy.get(article.banner).should('be.visible')
+        cy.get(article.author).should('be.visible')
+            .and('have.text', this.username)
+        cy.get(article.followButton).should('be.visible')
+            .and('contain', `Follow ${this.username}`)
+        cy.get(article.favoriteButton).should('be.visible')
+        cy.get(article.body).should('be.visible')
+        cy.get(article.commentTextForLoggedOutUsers).should('be.visible')
+            .and('contain', 'Sign in or sign up to add comments on this article')
+        cy.get(article.actions).should('be.visible')
+    })
+
     it('can create a new article', () => {
         cy.visit('/editor/')
         cy.get(editor.titleField).type('My post title')
