@@ -1,5 +1,5 @@
 # **Simple** E2E test suite with Cypress
-> **site:** http://angularjs.realworld.io/ [WIP] 
+> **application under test:** http://angularjs.realworld.io/
 
 > **cypress dashboard:** https://dashboard.cypress.io/projects/urshkd/runs
 
