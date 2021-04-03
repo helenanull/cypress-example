@@ -18,6 +18,14 @@ describe('Profile page', () => {
         cy.get(profile.favouritedArticlesTab).should('be.visible')
     })
 
+    it('can see created articles', function () {
+        cy.createArticle()
+        cy.visit(`/@${this.username}`)
+        cy.get(profile.articles).should('be.visible')
+            .and('have.length', 1)
+            .and('contain', 'Article created by Cypress test')
+    })
+
     it('can see favorited articles', function () {
         const apiUrl = Cypress.env('apiUrl')
         // we already test adding favorite from UI in home spec
