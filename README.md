@@ -53,10 +53,6 @@ One solution is to use [cy.viewport()](https://docs.cypress.io/api/commands/view
     - selector and test logic is separated - when selector is updated, we just need to update 1 selector file and not multiple tests
 2. Is it still E2E test if we use API to login in?
      - since end result will be the same - it will catch exactly the same bugs as `full flow/user journey` E2E test would find, (we need to be careful not to leave 'gaps' though), it is E2E - tests are just separated and independent with this approach, **test suite is E2E**, one test might not be. Example: We have a bug where login button is not working - our settings test would pass(if there are no bugs in settings), but login test would still fail.
-4. Why mobile view is in config and not in test (like cy.viewport())?
-    - we can't change userAgent in the middle of the test:
-        https://github.com/cypress-io/cypress/issues/2100
-        So it seems more correct to launch the tests with the correct config (--env device=mob/web)
 
 
 ## :link: Links
