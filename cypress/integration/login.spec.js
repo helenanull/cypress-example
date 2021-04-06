@@ -27,8 +27,7 @@ describe('Login', () => {
         it('can see error message when API responds with 500', () => {
             const apiUrl = Cypress.env('apiUrl')
 
-            cy.intercept(`${apiUrl}/users/login`, {
-                method: 'POST',
+            cy.intercept('POST', `${apiUrl}/users/login`, {
                 statusCode: 500,
                 fixture: 'login_error'
             })
