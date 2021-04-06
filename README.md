@@ -1,7 +1,7 @@
 # **Simple** E2E test suite with Cypress
-> **site:** http://angularjs.realworld.io/ [WIP] 
+> **application under test:** http://angularjs.realworld.io/
 
-> **test results:** https://dashboard.cypress.io/projects/urshkd/runs
+> **cypress dashboard:** https://dashboard.cypress.io/projects/urshkd/runs
 
 ## :goal_net: Goals
 - keep it simple - no 'custom' abstractions/functions/utils/helpers (use what Cypress provides)
@@ -30,18 +30,21 @@
     - import **`cypress-example`** folder and you are good to go
 
 ## :bulb: Information
+#### :test_tube: Tests:
+:file_folder: Tests are located in `cypress/integration` folder
 
-Tests are located in `cypress/integration` folder
+:file_folder: Custom commands are located in `cypress/support` folder (`.cmd.js` suffix)
 
-Configuration files:
-1. `cypress.json`
-2. `plugins/index.js`
+:file_folder: Selectors (CSS selectors) are located in `cypress/selectors` folder [only difference from cypress default project structure] - __not__ using page objects pattern but keeping selectors (only selectors) separately [Read more](https://github.com/helenanull/cypress-example#grey_question-qa)
 
-Custom commands (shortcuts) are located in `cypress/support` folder (`.cmd.js` suffix)
+#### :hammer_and_wrench: Configuration
+Config files:
+1. `cypress.json` - Main config file where default behavior of Cypress can be modified. [More info](https://docs.cypress.io/guides/references/configuration#cypress-json)
+2. `plugins/index.js` - Plugins file is where we can programmatically alter the resolved configuration [More info](https://docs.cypress.io/guides/tooling/plugins-guide#Use-Cases)
 
-Selectors are located in `cypress/selectors` folder [only difference from cypress default project structure]
-- __not__ using page objects pattern but keeping selectors (only selectors) separately as they are not easily readable and sometimes we need to share selectors between tests
+This test suite is supporting multiple viewports (mobile and desktop). 
 
+One solution is to use [cy.viewport()](https://docs.cypress.io/api/commands/viewport) command inside the test, to change the viewports, but very often websites also check user agent to get the device information(and show the mobile view). Since user agent is something [we can't change in the middle of the test](https://github.com/cypress-io/cypress/issues/2100), we need to pass config value when launching tests. In `cypress.json` we have a `device` parameter and in plugins file `index.js`, we decide viewports and user agent parameter values based on device value.
 
 ## :grey_question: Q&A
 1. Why keep selectors separately (not hard-coded to tests)
@@ -50,10 +53,6 @@ Selectors are located in `cypress/selectors` folder [only difference from cypres
     - selector and test logic is separated - when selector is updated, we just need to update 1 selector file and not multiple tests
 2. Is it still E2E test if we use API to login in?
      - since end result will be the same - it will catch exactly the same bugs as `full flow/user journey` E2E test would find, (we need to be careful not to leave 'gaps' though), it is E2E - tests are just separated and independent with this approach, **test suite is E2E**, one test might not be. Example: We have a bug where login button is not working - our settings test would pass(if there are no bugs in settings), but login test would still fail.
-4. Why mobile view is in config and not in test (like cy.viewport())?
-    - we can't change userAgent in the middle of the test:
-        https://github.com/cypress-io/cypress/issues/2100
-        So it seems more correct to launch the tests with the correct config (--env device=mob/web)
 
 
 ## :link: Links
