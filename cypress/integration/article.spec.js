@@ -11,31 +11,11 @@ describe('Article', () => {
         })
     })
 
-    it('logged out user can see article page', function () {
-        cy.createArticle().then((link) => {
-            // log out to visit article as logged out user
-            cy.clearCookies()
-            cy.clearLocalStorage()
-            cy.visit(`/article/${link}`)
-        })
-        cy.get(article.title).should('be.visible')
-        cy.get(article.banner).should('be.visible')
-        cy.get(article.author).should('be.visible')
-            .and('have.text', this.username)
-        cy.get(article.followButton).should('be.visible')
-            .and('contain', `Follow ${this.username}`)
-        cy.get(article.favoriteButton).should('be.visible')
-        cy.get(article.body).should('be.visible')
-        cy.get(article.commentTextForLoggedOutUsers).should('be.visible')
-            .and('contain', 'Sign in or sign up to add comments on this article')
-        cy.get(article.actions).should('be.visible')
-    })
-
     it('can create a new article', () => {
         cy.visit('/editor/')
         cy.get(editor.titleField).type('My post title')
         cy.get(editor.aboutField).type('Cypress')
-        cy.get(editor.bodyField).type(`Cypress is so cool awyeah! ${seeMoreLink}`)
+        cy.get(editor.bodyField).type(`Simple automation project ${seeMoreLink}`)
         cy.get(editor.publishButton).click()
         cy.get(article.title).should('be.visible')
             .and('have.text', 'My post title')
@@ -45,7 +25,7 @@ describe('Article', () => {
         cy.visit('/editor/')
         cy.get(editor.titleField).type('My post title')
         cy.get(editor.aboutField).type('Cypress')
-        cy.get(editor.bodyField).type(`Cypress is so cool awyeah! ${seeMoreLink}`)
+        cy.get(editor.bodyField).type(`Simple automation project ${seeMoreLink}`)
         cy.get(editor.tagsField).type('cypress{enter}')
         cy.get(editor.tagsField).should('have.value', '')
         cy.get(editor.addedTags).should('be.visible')
@@ -64,6 +44,26 @@ describe('Article', () => {
             .and('have.length', 2)
             .and('contain', 'cypress')
             .and('contain', 'test-automation')
+    })
+
+    it('logged out user can see article page', function () {
+        cy.createArticle().then((link) => {
+            // log out to visit article as logged out user
+            cy.clearCookies()
+            cy.clearLocalStorage()
+            cy.visit(`/article/${link}`)
+        })
+        cy.get(article.title).should('be.visible')
+        cy.get(article.banner).should('be.visible')
+        cy.get(article.author).should('be.visible')
+            .and('have.text', this.username)
+        cy.get(article.followButton).should('be.visible')
+            .and('contain', `Follow ${this.username}`)
+        cy.get(article.favoriteButton).should('be.visible')
+        cy.get(article.body).should('be.visible')
+        cy.get(article.commentTextForLoggedOutUsers).should('be.visible')
+            .and('contain', 'Sign in or sign up to add comments on this article')
+        cy.get(article.actions).should('be.visible')
     })
 
     it('can edit an article', () => {
