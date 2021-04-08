@@ -30,4 +30,27 @@ describe('Home page', () => {
         cy.get(home.sidebarTags).should('be.visible')
             .and('have.length', 20)
     })
+
+    it('can see popular tags', () => {
+        const apiUrl = Cypress.env('apiUrl')
+
+        // delay tag request so we can test "loading tags..." text
+        cy.intercept(`${apiUrl}/tags`, (req) => {
+            req.continue((res) => {
+                res.send({
+                    delay: 2000
+                })
+            })
+        }).as('tagRequest')
+
+        cy.visit('')
+        cy.get(home.sidebar).should('be.visible')
+            .and('contain', 'Popular Tags')
+        cy.get(home.loadingTagsText).should('be.visible')
+            .and('contain', 'Loading tags...')
+        cy.get(home.sidebarTags).should('not.exist')
+        cy.get(home.loadingTagsText).should('not.be.visible')
+        cy.get(home.sidebarTags).should('be.visible')
+            .and('have.length', 20)
+    })
 })
