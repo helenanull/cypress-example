@@ -1,7 +1,6 @@
 # **Simple** E2E test suite with Cypress
+[![cypress-example](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/detailed/urshkd&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/urshkd/runs) [![cypress-example](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/count/urshkd&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/urshkd/runs)
 > **application under test:** http://angularjs.realworld.io/
-
-> **cypress dashboard:** https://dashboard.cypress.io/projects/urshkd/runs
 
 ## :goal_net: Goals
 - keep it simple - no 'custom' abstractions/functions/utils/helpers (use what Cypress provides)
