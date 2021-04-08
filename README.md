@@ -45,6 +45,13 @@ This test suite is supporting multiple viewports (mobile and desktop).
 
 One solution is to use [cy.viewport()](https://docs.cypress.io/api/commands/viewport) command inside the test, to change the viewports, but very often websites also check user agent to get the device information(and show the mobile view). Since user agent is something [we can't change in the middle of the test](https://github.com/cypress-io/cypress/issues/2100), we need to pass config value when launching tests. In `cypress.json` we have a `device` parameter and in plugins file `index.js`, we decide viewports and user agent parameter values based on device value.
 
+#### :diamond_shape_with_a_dot_inside: IDE setup and recommended extensions
+- [VS Code](https://code.visualstudio.com/download) with following extensions:
+    - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - to keep your code tidy
+    - [Add Only](https://marketplace.visualstudio.com/items?itemName=ub1que.add-only) - enables to add/remove `.only` with one click
+    - [VScode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)
+
+
 ## :grey_question: Q&A
 1. Why keep selectors separately (not hard-coded to tests)
     - **tests are much more readable** - css selectors are by design hard to read - even if we add data-test attributes. We might need 2nd child or want to verify that selector is a child for another element, like `.class2 > ul:nth-child(2)` (alternative `get().find()` or `get().parent()` is bad practice because of [this](https://docs.cypress.io/guides/core-concepts/retry-ability.html#Only-the-last-command-is-retried) )
