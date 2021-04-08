@@ -8,7 +8,7 @@ describe('Settings', () => {
     })
 
     it('can update settings', () => {
-        const logoLink = 'https://www.cypress.io/static/33498b5f95008093f5f94467c61d20ab/ac1e1/cypress-logo.webp'
+        const logoLink = 'https://media.giphy.com/media/jpbnoe3UIa8TU8LM13/giphy.gif'
         const username = `updated_cy${Math.random().toString().slice(2, 8)}`
 
         cy.get(settings.title).should('be.visible')
@@ -20,7 +20,10 @@ describe('Settings', () => {
         cy.url().should('eq', `${Cypress.config('baseUrl')}/@${username}`)
         cy.get(profile.savedBio).should('be.visible')
             .and('have.text', 'update settings')
-        cy.get(profile.image).should('be.visible')
+        cy.get(profile.image)
+            .should('have.css', 'height', '100px')
+            .and('have.css', 'width', '100px')
+            .and('be.visible')
             .and('have.attr', 'src', logoLink)
     })
 
