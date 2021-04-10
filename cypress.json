@@ -1,6 +1,6 @@
 {
     "baseUrl": "http://angularjs.realworld.io/#",
-    "numTestsKeptInMemory": 5,
+    "numTestsKeptInMemory": 25,
     "defaultCommandTimeout": 10000,
     "experimentalFetchPolyfill": true,
     "env": {
