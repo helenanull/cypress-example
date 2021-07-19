@@ -5,7 +5,7 @@ workflows:
   build:
     jobs:
       - cypress/install:
-          build: 'npm install' # run a custom app build step
+          build: 'npm install'
       - cypress/run:
           requires:
             - cypress/install
