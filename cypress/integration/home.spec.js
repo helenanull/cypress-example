@@ -31,7 +31,7 @@ describe('Home page', () => {
             .and('have.length', 20)
     })
 
-    it('can see popular tags', () => {
+    it.skip('can see popular tags', () => {
         const apiUrl = Cypress.env('apiUrl')
 
         // delay tag request so we can test "loading tags..." text
