@@ -10,7 +10,7 @@
     "cy:ci": "cypress run --env device=web --record --parallel --browser chrome --headless"
   },
   "devDependencies": {
-    "cypress": "^8.1.0",
+    "cypress": "^8.3.1",
     "eslint": "^7.23.0"
   }
 }
