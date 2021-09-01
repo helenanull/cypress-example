@@ -1,7 +1,7 @@
 {
     "baseUrl": "http://angularjs.realworld.io/#",
     "numTestsKeptInMemory": 25,
-    "defaultCommandTimeout": 10000,
+    "defaultCommandTimeout": 15000,
     "experimentalFetchPolyfill": true,
     "env": {
         "apiUrl": "https://conduit.productionready.io/api",
