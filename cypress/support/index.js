@@ -17,5 +17,6 @@
 import './register.cmd'
 import './article.cmd'
 
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+// ignore all console errors in app
+// eslint-disable-next-line no-unused-vars
+Cypress.on('uncaught:exception', (err, runnable) => false)
