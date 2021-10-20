@@ -5,6 +5,7 @@
     "experimentalFetchPolyfill": true,
     "env": {
         "apiUrl": "https://conduit.productionready.io/api",
+        "newApiUrl": "https://api.realworld.io/api",
         "device": "desktop",
         "email": "test@test.com",
         "password": "Cypress123"

@@ -28,7 +28,9 @@ describe('Register', () => {
     })
 
     it('check registration request body and response', function () {
-        cy.intercept('/api/users').as('loginRequest')
+        const apiUrl = Cypress.env('newApiUrl')
+
+        cy.intercept(`${apiUrl}/users`).as('loginRequest')
         cy.get(registration.usernameField).type(this.username)
         cy.get(registration.emailField).type(this.email)
         cy.get(registration.passwordField).type('Cypress12{enter}')
@@ -40,7 +42,6 @@ describe('Register', () => {
             expect(xhr.request.body.user.username).to.eq(this.username)
             // check response body
             expect(xhr.response.body.user.email).to.eq(this.email)
-            expect(xhr.response.body.user.id).not.to.eq(null)
             expect(xhr.response.body.user.token).not.to.eq(null)
         })
         cy.get(header.settingsLink).should('be.visible')
