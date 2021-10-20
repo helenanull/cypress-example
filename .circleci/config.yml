@@ -13,7 +13,7 @@ workflows:
           parallel: true # split all specs across machines
           parallelism: 2 # use 2 CircleCI machines to finish quickly
           group: 'all tests'
-  hourly:
+  weekly:
     triggers:
       - schedule:
           cron: "0 0 * * 0"
