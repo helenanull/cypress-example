@@ -18,13 +18,6 @@ describe('Login', () => {
                 .and('contain', 'email or password is invalid')
         })
 
-        // TODO: remove skip and fix once app is stable
-        it.skip('can see error message when username and password fields are empty', () => {
-            cy.get(login.signInButton).click()
-            cy.get(login.errorMessages).should('be.visible')
-                .and('contain', 'email or password is invalid')
-        })
-
         it('can see error message when API responds with 500', () => {
             const apiUrl = Cypress.env('apiUrl')
 

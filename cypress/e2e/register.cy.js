@@ -28,7 +28,7 @@ describe('Register', () => {
     })
 
     it('check registration request body and response', function () {
-        const apiUrl = Cypress.env('newApiUrl')
+        const apiUrl = Cypress.env('apiUrl')
 
         cy.intercept(`${apiUrl}/users`).as('loginRequest')
         cy.get(registration.usernameField).type(this.username)
