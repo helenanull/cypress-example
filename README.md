@@ -30,7 +30,7 @@
 
 ## :bulb: Information
 #### :test_tube: Tests:
-:file_folder: Tests are located in `cypress/integration` folder
+:file_folder: Tests are located in `cypress/e2e` folder
 
 :file_folder: Custom commands are located in `cypress/support` folder (`.cmd.js` suffix)
 
@@ -38,7 +38,7 @@
 
 #### :hammer_and_wrench: Configuration
 Config files:
-1. `cypress.json` - Main config file where default behavior of Cypress can be modified. [More info](https://docs.cypress.io/guides/references/configuration#cypress-json)
+1. `cypress.config.js` - Main config file where default behavior of Cypress can be modified. [More info](https://docs.cypress.io/guides/references/configuration)
 2. `plugins/index.js` - Plugins file is where we can programmatically alter the resolved configuration [More info](https://docs.cypress.io/guides/tooling/plugins-guide#Use-Cases)
 
 This test suite is supporting multiple viewports (mobile and desktop). 
