@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "cy:open:mob": "cypress open --env device=mob",
-    "cy:open:web": "cypress open --env device=web",
-    "cy:run:mob": "cypress run --env device=mob",
+    "cy:open:mob": "cypress open --e2e --browser=chrome --env device=mob",
+    "cy:open:web": "cypress open --e2e --browser=chrome --env device=web",
+    "cy:run:mob": "cypress run --browser=chrome --env device=mob",
     "cy:run:web": "cypress run --env device=web",
     "cy:ci": "cypress run --env device=web --record --parallel --browser chrome --headless"
   },
   "devDependencies": {
-    "cypress": "^8.6.0",
+    "cypress": "^10.5.0",
     "eslint": "^7.23.0"
   }
 }

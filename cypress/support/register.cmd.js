@@ -20,20 +20,17 @@ Cypress.Commands.add('register', () => {
     })
         .then((response) => {
             expect(response.status).to.eq(200)
-            cy.log('**user created**')
-            cy.log(`**email: ${email}**`)
-            cy.log(`**password: ${password}**`)
-        })
-        .then((response) => {
-            expect(response.status).to.eq(200)
             // user is also logged in after registering
             // so we can just save token
             window.localStorage.setItem('jwtToken', response.body.user.token)
 
-            return {
-                // we need email and username in tests
-                email: email,
-                username: username
-            }
+            cy.log('**user created**')
+            cy.log(`**email: ${email}**`)
+            cy.log(`**password: ${password}**`)
         })
+        .then(() => ({
+            // we need email and username in tests
+            email: email,
+            username: username
+        }))
 })

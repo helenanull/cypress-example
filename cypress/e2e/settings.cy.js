@@ -1,8 +1,7 @@
 import settings from '../selectors/settings.sel'
 import profile from '../selectors/profile.sel'
 
-// TODO: remove skip and fix once app is stable
-describe.skip('Settings', () => {
+describe('Settings', () => {
     beforeEach(() => {
         cy.register()
         cy.visit('/settings')
@@ -26,16 +25,5 @@ describe.skip('Settings', () => {
             .and('have.css', 'width', '100px')
             .and('be.visible')
             .and('have.attr', 'src', logoLink)
-    })
-
-    it('can see error message when fields are empty', () => {
-        cy.get(settings.usernameField).clear()
-        cy.get(settings.emailField).clear()
-        cy.get(settings.submitButton).click()
-        cy.url().should('include', '/settings')
-        cy.get(settings.errorMessages).should('be.visible')
-            .and('contain', 'email can\'t be blank')
-            .and('contain', 'username can\'t be blank')
-            .and('contain', 'username is too short')
     })
 })

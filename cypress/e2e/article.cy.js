@@ -1,6 +1,5 @@
 import editor from '../selectors/editor.sel'
 import article from '../selectors/article.sel'
-import home from '../selectors/home.sel'
 
 describe('Article', () => {
     const seeMoreLink = 'https://github.com/helenanull/cypress-example'
@@ -95,32 +94,5 @@ describe('Article', () => {
         cy.get(article.deleteButton).click()
         cy.wait('@deleteRequest')
         cy.url().should('eq', `${Cypress.config('baseUrl')}/`)
-    })
-
-    it.skip('can favourite an article', () => {
-        // TODO: remove skip and fix once app is stable
-        const apiUrl = Cypress.env('newApiUrl')
-
-        // create article to make sure there is at least one article to faviourite
-        cy.createArticle()
-
-        cy.intercept('POST', '/api/articles/*/favorite').as('addFavoriteReq')
-        cy.visit('')
-        cy.get(home.globalFeedTab).click()
-        // articles are always changing on home page
-        // we want to make sure we favorited the correct article
-        // so we save the first article slug to compare later
-        cy.get(home.readMoreLink).should('have.attr', 'href').then((slug) => {
-            cy.get(home.firstFavoriteButton).click()
-                .should('have.css', 'background-color', 'rgb(92, 184, 92)')
-            cy.wait('@addFavoriteReq')
-            cy.request('https://api.realworld.io/api/articles?limit=10&offset=0')
-            cy.pause()
-
-            // verify article was actually favorited
-            cy.request(`${apiUrl}/articles?limit=10&offset=0`).then((resp) => {
-                expect(resp.body.articles[0].slug).to.eq(slug)
-            })
-        })
     })
 })
