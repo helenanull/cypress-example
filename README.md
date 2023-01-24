@@ -30,26 +30,26 @@
 
 ## :bulb: Information
 #### :test_tube: Tests
-    :file_folder: Tests are located in `cypress/e2e` folder
+:file_folder: Tests are located in `cypress/e2e` folder
 
-    :file_folder: Custom commands are located in `cypress/support` folder (`.cmd.js` suffix)
+:file_folder: Custom commands are located in `cypress/support` folder (`.cmd.js` suffix)
 
-    :file_folder: Selectors (CSS selectors) are located in `cypress/selectors` folder [only difference from cypress default project structure] - __not__ using page object model(POM) design pattern but keeping selectors (only selectors) separately [Read more](https://github.com/helenanull/cypress-example#grey_question-qa)
+:file_folder: Selectors (CSS selectors) are located in `cypress/selectors` folder [only difference from cypress default project structure] - __not__ using page object model(POM) design pattern but keeping selectors (only selectors) separately [Read more](https://github.com/helenanull/cypress-example#grey_question-qa)
 
 #### :hammer_and_wrench: Configuration
 Config files:
-    1. `cypress.config.js` - Main config file where default behavior of Cypress can be modified. [More info](https://docs.cypress.io/guides/references/configuration)
-    2. `plugins/index.js` - Plugins file is where we can programmatically alter the resolved configuration [More info](https://docs.cypress.io/guides/tooling/plugins-guide#Use-Cases)
+1. `cypress.config.js` - Main config file where default behavior of Cypress can be modified. [More info](https://docs.cypress.io/guides/references/configuration)
+2. `plugins/index.js` - Plugins file is where we can programmatically alter the resolved configuration [More info](https://docs.cypress.io/guides/tooling/plugins-guide#Use-Cases)
 
-    This test suite is supporting multiple viewports (mobile and desktop). See `plugins/index.js` file
+This test suite is supporting multiple viewports (mobile and desktop). See `plugins/index.js` file
 
-    One solution is to use [cy.viewport()](https://docs.cypress.io/api/commands/viewport) command inside the test, to change the viewports, but very often websites also check user agent to get the device information(and show the mobile view). Since user agent is something [we can't change in the middle of the test](https://github.com/cypress-io/cypress/issues/2100), we need to pass config value when launching tests. In `cypress.config.js` we have a `device` parameter and in plugins file `index.js`, we decide viewports and user agent parameter values based on that device value.
+One solution is to use [cy.viewport()](https://docs.cypress.io/api/commands/viewport) command inside the test, to change the viewports, but very often websites also check user agent to get the device information(and show the mobile view). Since user agent is something [we can't change in the middle of the test](https://github.com/cypress-io/cypress/issues/2100), we need to pass config value when launching tests. In `cypress.config.js` we have a `device` parameter and in plugins file `index.js`, we decide viewports and user agent parameter values based on that device value.
 
 #### :diamond_shape_with_a_dot_inside: IDE setup and recommended extensions
-    - [VS Code](https://code.visualstudio.com/download) with following extensions:
-        - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - to keep your code tidy
-        - [Add Only](https://marketplace.visualstudio.com/items?itemName=ub1que.add-only) - enables to add/remove `.only` with one click
-        - [Mocha snippets](https://marketplace.visualstudio.com/items?itemName=spoonscen.es6-mocha-snippets)
+- [VS Code](https://code.visualstudio.com/download) with following extensions:
+    - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - to keep your code tidy
+    - [Add Only](https://marketplace.visualstudio.com/items?itemName=ub1que.add-only) - enables to add/remove `.only` with one click
+    - [Mocha snippets](https://marketplace.visualstudio.com/items?itemName=spoonscen.es6-mocha-snippets)
 
 
 ## :grey_question: Q&A
