@@ -29,7 +29,7 @@
     - import **`cypress-example`** folder and you are good to go
 
 ## :bulb: Information
-#### :test_tube: Tests:
+#### :test_tube: Tests
 :file_folder: Tests are located in `cypress/e2e` folder
 
 :file_folder: Custom commands are located in `cypress/support` folder (`.cmd.js` suffix)
