@@ -49,7 +49,7 @@ One solution is to use [cy.viewport()](https://docs.cypress.io/api/commands/view
 - [VS Code](https://code.visualstudio.com/download) with following extensions:
     - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - to keep your code tidy
     - [Add Only](https://marketplace.visualstudio.com/items?itemName=ub1que.add-only) - enables to add/remove `.only` with one click
-    - [VScode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)
+    - [Mocha snippets](https://marketplace.visualstudio.com/items?itemName=spoonscen.es6-mocha-snippets)
 
 
 ## :grey_question: Q&A
@@ -58,7 +58,7 @@ One solution is to use [cy.viewport()](https://docs.cypress.io/api/commands/view
     - in large projects, we might need to re-use the same selectors. Example: in login test, we want to verify that login was successful and for that, we check settings link visibility in header. But the same settings link is also used in header test.
     - selector and test logic is separated - when selector is updated, we just need to update 1 selector file and not multiple tests
 2. Is it still E2E test if we use API's instead of UI?
-     - all functionality should be tested from UI **once**. There is no reason to repeat the same UI actions over and over again in each test. [Edit article example](https://github.com/helenanull/cypress-example/blob/main/cypress/integration/article.spec.js#L69). End result will be the same - it will catch exactly the same bugs as `full flow/user journey` test would find, (we need to be careful not to leave 'gaps' though) - tests are just separated and independent with this approach, **test suite is still E2E**. Example: We have a bug where login button is not working - our settings test would pass(if there are no bugs in settings), but login test would still fail.
+     - all functionality should be tested from UI **once**. There is no reason to repeat the same UI actions over and over again in each test. [Edit article example](https://github.com/helenanull/cypress-example/blob/ff14f045c47221fce687aa94060f54ab055ad5f1/cypress/e2e/article.cy.js#L68). End result will be the same - it will catch exactly the same bugs as `full flow/user journey` test would find, (we need to be careful not to leave 'gaps' though) - tests are just separated and independent with this approach, **test suite is still E2E**. Example: We have a bug where login button is not working - our settings test would pass(if there are no bugs in settings), but login test would still fail.
 
 
 ## :link: Links
