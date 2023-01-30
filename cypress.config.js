@@ -3,9 +3,8 @@
 const { defineConfig } = require('cypress')
 
 module.exports = defineConfig({
-    numTestsKeptInMemory: 25,
+    numTestsKeptInMemory: 15,
     defaultCommandTimeout: 15000,
-    experimentalFetchPolyfill: true,
     env: {
         apiUrl: 'https://api.realworld.io/api',
         oldApiUrl: 'https://conduit.productionready.io/api',
