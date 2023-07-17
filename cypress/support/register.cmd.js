@@ -19,7 +19,7 @@ Cypress.Commands.add('register', () => {
         }
     })
         .then((response) => {
-            expect(response.status).to.eq(200)
+            expect(response.status).to.eq(201)
             // user is also logged in after registering
             // so we can just save token
             window.localStorage.setItem('jwtToken', response.body.user.token)
