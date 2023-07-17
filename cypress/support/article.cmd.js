@@ -18,7 +18,7 @@ Cypress.Commands.add('createArticle', () => {
         }
     })
         .then((response) => {
-            expect(response.status).to.eq(200)
+            expect(response.status).to.eq(201)
             return response.body.article.slug
         })
 })
