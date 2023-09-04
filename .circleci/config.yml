@@ -2,11 +2,11 @@ version: 2.1
 orbs:
   cypress: cypress-io/cypress@3.1.3
 jobs:
-  install-browser:
+  build_and_test: # this can be any name you choose
     steps:
+      - checkout
       - run:
-          name: test
-          command: npx @puppeteer/browsers install chrome@stable
+          command: npm run test
 workflows:
   run-cy-tests:
     jobs:
