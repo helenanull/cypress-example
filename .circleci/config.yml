@@ -5,6 +5,7 @@ jobs:
   install-browser:
     steps:
       - run:
+          name: test
           command: npx @puppeteer/browsers install chrome@stable
 workflows:
   run-cy-tests:
