@@ -4,11 +4,7 @@ orbs:
 workflows:
   build:
     jobs:
-      - cypress/install:
-          build: 'npm install'
       - cypress/run:
-          requires:
-            - cypress/install
           install-browsers: true
           start-command: npm run cy:run:web
           record: true # record results on Cypress Dashboard
