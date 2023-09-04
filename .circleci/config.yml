@@ -17,12 +17,9 @@ workflows:
               only:
                 - main
     jobs:
-      - cypress/install:
-          build: 'npm install'
+      use-my-orb:
+    jobs:
       - cypress/run:
-          requires:
-            - cypress/install
-          record: true # record results on Cypress Dashboard
-          parallel: true # split all specs across machines
+          install-browsers: true
+          start-command: npm run cy:ci
           parallelism: 2 # use 2 CircleCI machines to finish quickly
-          group: 'all tests'
