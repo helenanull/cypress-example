@@ -1,10 +1,11 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@3.1.3
+  node: circleci/node@5.0.2
 jobs:
   build_and_test: # this can be any name you choose
     steps:
-      - checkout
+      - executor: node/default
       - run:
           command: npm run test
 workflows:
