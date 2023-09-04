@@ -17,11 +17,12 @@ jobs:
             - .
 workflows:
   run-cy-tests:
-    jobs:
-      - install-browser
+    steps:
       - run:
           command: |
-            ls
+            pwd && ls
+    jobs:
+      - install-browser
       - cypress/run:
           requires:
             - install-browser
