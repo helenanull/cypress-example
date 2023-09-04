@@ -4,9 +4,9 @@ orbs:
 
 jobs:
   install-browser:
+    executor: node/default
     steps:
-      - run:
-          command: npx @puppeteer/browsers install chrome@stable
+      - checkout
 
 workflows:
   use-my-orb:
