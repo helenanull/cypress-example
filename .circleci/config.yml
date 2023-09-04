@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1
+  cypress: cypress-io/cypress@3.1.3
 workflows:
   build:
     jobs:
@@ -9,6 +9,8 @@ workflows:
       - cypress/run:
           requires:
             - cypress/install
+          install-browsers: true
+          start-command: npm run cy:run:web
           record: true # record results on Cypress Dashboard
           parallel: true # split all specs across machines
           parallelism: 2 # use 2 CircleCI machines to finish quickly
