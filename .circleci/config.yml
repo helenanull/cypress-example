@@ -5,7 +5,6 @@ workflows:
   use-my-orb:
     jobs:
       - cypress/run:
-          install-browsers: true
           start-command: npm run cy:ci
           parallelism: 2 # use 2 CircleCI machines to finish quickly
   weekly:
@@ -18,6 +17,5 @@ workflows:
                 - main
     jobs:
       - cypress/run:
-          install-browsers: true
           start-command: npm run cy:ci
           parallelism: 2 # use 2 CircleCI machines to finish quickly
