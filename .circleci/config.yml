@@ -26,7 +26,7 @@ workflows:
     jobs:
       - install-browser
       - test:
-        requires:
+          requires:
             - install-browser
       - cypress/run:
           requires:
