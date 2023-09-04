@@ -11,6 +11,7 @@ jobs:
 workflows:
   run-cy-tests:
     jobs:
+      - install-browser
       - cypress/run:
           cypress-command: 'npm run cy:ci'
           parallelism: 2
