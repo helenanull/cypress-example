@@ -1,6 +1,11 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@3.1.3
+jobs:
+  install-browser:
+    steps:
+      - run:
+          command: npx @puppeteer/browsers install chrome@stable
 workflows:
   run-cy-tests:
     jobs:
