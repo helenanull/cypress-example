@@ -13,6 +13,8 @@ workflows:
     jobs:
       - install-browser
       - cypress/run:
+          requires:
+            - install-browser
           cypress-command: npm run cy:ci
           parallelism: 2 # use 2 CircleCI machines to finish quickly
   weekly:
