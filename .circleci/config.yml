@@ -10,7 +10,7 @@ jobs:
           command: npx @puppeteer/browsers install chrome@stable
       - run:
           command: |
-            ls && owd
+            ls && pwd
       - persist_to_workspace:
           root: ~/project
           paths:
