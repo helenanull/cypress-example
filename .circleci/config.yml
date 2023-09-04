@@ -6,9 +6,7 @@ workflows:
     jobs:
       - cypress/run:
           install-browsers: true
-          start-command: npm run cy:run:web
-          record: true # record results on Cypress Dashboard
-          parallel: true # split all specs across machines
+          start-command: npm run cy:ci
           parallelism: 2 # use 2 CircleCI machines to finish quickly
           group: 'all tests'
   weekly:
