@@ -23,6 +23,8 @@ jobs:
             ls && pwd
 workflows:
   run-cy-tests:
+    - attach_workspace:
+        at: ~/project
     jobs:
       - install-browser
       - test:
