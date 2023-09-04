@@ -10,20 +10,22 @@ jobs:
           command: npx @puppeteer/browsers install chrome@stable
       - run:
           command: |
-            ls
+            ls && owd
       - persist_to_workspace:
           root: ~/project
           paths:
             - .
+  test: # this can be any name you choose
+    executor: node/default
+    steps:
+          command: |
+            ls && pwd
 workflows:
   run-cy-tests:
     jobs:
       - install-browser
+      - test
       - cypress/run:
-          steps:
-            run: 
-              command: |
-                ls  && pwd
           requires:
             - install-browser
           cypress-command: 'npm run cy:ci'
