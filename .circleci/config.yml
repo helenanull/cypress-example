@@ -4,6 +4,9 @@ orbs:
 workflows:
   use-my-orb:
     jobs:
+      - install-browser:
+          run:
+            - command: npx @puppeteer/browsers install chrome@stable
       - cypress/run:
           cypress-command: npm run cy:ci
           install-browsers: true
