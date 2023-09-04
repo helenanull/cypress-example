@@ -18,6 +18,7 @@ jobs:
   test: # this can be any name you choose
     executor: node/default
     steps:
+      - run:
           command: |
             ls && pwd
 workflows:
