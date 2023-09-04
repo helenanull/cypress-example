@@ -8,6 +8,10 @@ jobs:
     steps:
       - run:
           command: npx @puppeteer/browsers install chrome@stable
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
 workflows:
   run-cy-tests:
     jobs:
