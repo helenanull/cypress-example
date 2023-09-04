@@ -16,8 +16,8 @@ workflows:
             branches:
               only:
                 - main
-      - jobs:
-        - cypress/run:
-            install-browsers: true
-            start-command: npm run cy:ci
-            parallelism: 2 # use 2 CircleCI machines to finish quickly
+    jobs:
+      - cypress/run:
+          install-browsers: true
+          start-command: npm run cy:ci
+          parallelism: 2 # use 2 CircleCI machines to finish quickly
