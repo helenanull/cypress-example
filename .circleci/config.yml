@@ -16,8 +16,7 @@ workflows:
             branches:
               only:
                 - main
-    jobs:
-      use-my-orb:
+      - jobs:
         - cypress/run:
             install-browsers: true
             start-command: npm run cy:ci
