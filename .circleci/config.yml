@@ -9,7 +9,6 @@ workflows:
             - command: npx @puppeteer/browsers install chrome@stable
       - cypress/run:
           cypress-command: npm run cy:ci
-          install-browsers: true
           parallelism: 2 # use 2 CircleCI machines to finish quickly
   weekly:
     triggers:
