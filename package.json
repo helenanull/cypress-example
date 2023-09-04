@@ -7,7 +7,7 @@
     "cy:open:web": "cypress open --e2e --browser=chrome --env device=web",
     "cy:run:mob": "cypress run --browser=chrome --env device=mob",
     "cy:run:web": "cypress run --env device=web",
-    "cy:ci": "cypress run --env device=web --record --parallel --browser chrome --headless"
+    "cy:ci": "cypress run --env device=web --record --parallel --browser chrome --headless --group=all_tests"
   },
   "devDependencies": {
     "cypress": "^13.1.0",

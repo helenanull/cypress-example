@@ -8,7 +8,6 @@ workflows:
           install-browsers: true
           start-command: npm run cy:ci
           parallelism: 2 # use 2 CircleCI machines to finish quickly
-          group: 'all tests'
   weekly:
     triggers:
       - schedule:
