@@ -4,8 +4,8 @@ orbs:
   node: circleci/node@5.0.2
 jobs:
   build_and_test: # this can be any name you choose
+    executor: node/default
     steps:
-      - executor: node/default
       - run:
           command: npm run test
 workflows:
