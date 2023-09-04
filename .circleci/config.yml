@@ -25,7 +25,7 @@ workflows:
   run-cy-tests:
     jobs:
       - install-browser
-      - test
+      - test:
         requires:
             - install-browser
       - cypress/run:
