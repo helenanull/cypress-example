@@ -17,13 +17,13 @@ jobs:
             - .
 workflows:
   run-cy-tests:
-    steps:
-      - run:
-          command: |
-            pwd && ls
     jobs:
       - install-browser
       - cypress/run:
+          pre-steps:
+            run: 
+              command: |
+                ls  && pwd
           requires:
             - install-browser
           cypress-command: 'npm run cy:ci'
