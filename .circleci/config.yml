@@ -6,4 +6,4 @@ workflows:
     jobs:
       - cypress/run:
           cypress-command: 'npx cypress run --parallel --record'
-          parallelism: 1
+          parallelism: 2
