@@ -1,10 +1,21 @@
 version: 2.1
 orbs:
-    cypress: cypress-io/cypress@3.1.3
-
+  cypress: cypress-io/cypress@3.1.3
 workflows:
-    run-cy-tests:
-        jobs:
-            - cypress/run:
-                cypress-command: npm run cy:ci
-                parallelism: 2 # use 2 CircleCI machines to finish quickly
+  build:
+    jobs:
+      - cypress/run:
+          cypress-command: 'npx cypress run --parallel --record'
+          parallelism: 2
+  weekly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * 0"
+          filters:
+            branches:
+              only:
+                - main
+    jobs:
+      - cypress/run:
+          cypress-command: 'npx cypress run --parallel --record'
+          parallelism: 2
