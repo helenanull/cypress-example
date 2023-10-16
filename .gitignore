@@ -2,7 +2,7 @@ bin-debug/
 bin-release/
 [Oo]bj/
 [Bb]in/
-/screenshots
+cypress/screenshots
 cypress/videos
 /node_modules
 cypress/screenshots
