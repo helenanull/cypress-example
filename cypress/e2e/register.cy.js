@@ -1,5 +1,5 @@
-import registration from '../selectors/register.sel'
-import header from '../selectors/header.sel'
+import registration from '../selectors/register.css'
+import header from '../selectors/header.css'
 
 describe('Register', () => {
     // https://docs.cypress.io/guides/core-concepts/variables-and-aliases.html#Aliases

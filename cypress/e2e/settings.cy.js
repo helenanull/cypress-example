@@ -1,5 +1,5 @@
-import settings from '../selectors/settings.sel'
-import profile from '../selectors/profile.sel'
+import settings from '../selectors/settings.css'
+import profile from '../selectors/profile.css'
 
 describe('Settings', () => {
     beforeEach(() => {

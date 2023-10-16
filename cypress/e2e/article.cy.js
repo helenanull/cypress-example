@@ -1,5 +1,5 @@
-import editor from '../selectors/editor.sel'
-import article from '../selectors/article.sel'
+import editor from '../selectors/editor.css'
+import article from '../selectors/article.css'
 
 describe('Article', () => {
     const seeMoreLink = 'https://github.com/helenanull/cypress-example'

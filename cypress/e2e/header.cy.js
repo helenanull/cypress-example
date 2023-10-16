@@ -1,4 +1,4 @@
-import header from '../selectors/header.sel'
+import header from '../selectors/header.css'
 
 describe('Header', () => {
     it('contains correct elements when logged out', () => {

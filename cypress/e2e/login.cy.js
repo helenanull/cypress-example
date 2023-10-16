@@ -1,5 +1,5 @@
-import login from '../selectors/login.sel'
-import header from '../selectors/header.sel'
+import login from '../selectors/login.css'
+import header from '../selectors/header.css'
 
 describe('Login', () => {
     // context is the same as describe

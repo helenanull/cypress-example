@@ -1,4 +1,4 @@
-import article from '../selectors/article.sel'
+import article from '../selectors/article.css'
 
 describe('Comments', () => {
     beforeEach(() => {

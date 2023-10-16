@@ -1,4 +1,4 @@
-import home from '../selectors/home.sel'
+import home from '../selectors/home.css'
 
 describe('Home page', () => {
     it('contains correct elements when logged out', () => {

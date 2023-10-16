@@ -1,4 +1,4 @@
-import profile from '../selectors/profile.sel'
+import profile from '../selectors/profile.css'
 
 describe('Profile page', () => {
     beforeEach(() => {
