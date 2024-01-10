@@ -64,7 +64,7 @@ One solution is to use [cy.viewport()](https://docs.cypress.io/api/commands/view
 2. Is it still E2E test if we use API's instead of UI?
      - all functionality should be tested from UI **once**. There is no reason to repeat the same UI actions over and over again in each test. [Edit article example](https://github.com/helenanull/cypress-example/blob/ff14f045c47221fce687aa94060f54ab055ad5f1/cypress/e2e/article.cy.js#L68). End result will be the same - it will catch exactly the same bugs as `full flow/user journey` test would find, (we need to be careful not to leave 'gaps' though) - tests are faster, more stable and independent with this approach, **test suite is still E2E**.
 
-       Example: Application/Website has a bug and login button is not working - our settings test would still pass(if there are no bugs in settings), but login test would fail.
+       Example: Application/website has a bug where login button is not working - this means that settings(and other tests) would still pass since we log in programmatically, but login test would fail because we actually click on the button like users do.
 
 
 ## :link: Links
