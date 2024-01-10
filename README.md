@@ -58,7 +58,7 @@ One solution is to use [cy.viewport()](https://docs.cypress.io/api/commands/view
 
 ## :grey_question: Q&A
 1. Why keep selectors separately (not hard-coded to tests)
-    - **tests are much more readable** - css selectors are by design hard to read - even if we add data-test attributes. We might need a 2nd child or want to verify that a selector is a child for another element, like `.class2 > ul:nth-child(2)` (alternative `get().find()` or `get().parent()` is bad practice because of [this](https://docs.cypress.io/guides/core-concepts/retry-ability.html#Only-the-last-command-is-retried) )
+    - **tests are much more readable** - css selectors are by design hard to read - even if we add data-test attributes. We might need a 2nd child or want to verify that a selector is a child of another element, like `.class2 > ul:nth-child(2)` (alternative `get().find()` or `get().parent()` is bad practice because of [this](https://docs.cypress.io/guides/core-concepts/retry-ability.html#Only-the-last-command-is-retried) )
     - in large projects, we might need to re-use the same selectors. Example: in login test, we want to verify that login was successful and for that, we check settings link visibility in header. But the same settings link is also used in header test.
     - selector and test logic is separated - when selector is updated, we just need to update 1 selector file and not multiple tests
 2. Is it still E2E test if we use API's instead of UI?
