@@ -23,7 +23,7 @@
 
 - If you installed Cypress via npm: 
     - cypress test runner (cypress __open__):
-      - **`npm run cy:open:web`** OR `cypress open --env device=web` (change web to mob to switch to mobile view)
+      - **`npm run cy:open:web`** OR `cypress open --env device=web` (change `web` to `mob` to run tests on mobile view)
     
     - cypress __headless mode__ (cypress run):
       - `npm run cy:run:web` OR `cypress run --env device=web`
