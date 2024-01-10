@@ -2,7 +2,7 @@
 [![cypress-example](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/detailed/urshkd&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/urshkd/runs) :point_left: click here to see test results on Cypress dashboard
 > **application under test:** http://angularjs.realworld.io/
 
-  🎉 Learn how to write these tests and more in our trainings. More info: [bigbyte.academy](https://bigbyte.academy) :tada:
+  🎉 Learn how to write these tests and more in our trainings [bigbyte.academy](https://bigbyte.academy) :tada:
 
 ## :goal_net: Goals
 - keep it simple - no 'custom' abstractions/functions/utils/helpers (use what Cypress provides)
