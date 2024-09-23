@@ -1,6 +1,6 @@
 module.exports = {
-    usernameField: '[ng-model*=username]',
-    emailField: '[ng-model*=email]',
-    passwordField: '[ng-model*=password]',
+    usernameField: '[name=username]',
+    emailField: '[name=email]',
+    passwordField: '[name=password]',
     signUpButton: '.btn'
 }

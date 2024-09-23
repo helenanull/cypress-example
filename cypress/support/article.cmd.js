@@ -1,16 +1,18 @@
 Cypress.Commands.add('createArticle', () => {
     const apiUrl = Cypress.env('apiUrl')
-    const link = 'https://github.com/helenanull/cypress-example'
+    const link = 'https://github.com/bigbytecy/bigbyte-example-project'
+    const authToken = JSON.parse(window.localStorage.getItem('loggedUser')).headers.Authorization
+    const randomPostTitle = `My post title ${Math.random().toString().slice(2, 11)}`
 
     cy.request({
         url: `${apiUrl}/articles`,
         method: 'POST',
         headers: {
-            authorization: `Token ${window.localStorage.getItem('jwtToken')}`
+            authorization: authToken
         },
         body: {
             article: {
-                title: 'Article created by Cypress test',
+                title: randomPostTitle,
                 description: link,
                 body: `This article is created with Cypress. See code here: ${link}`,
                 tagList: ['cypress', 'simple', 'test-automation']
@@ -19,6 +21,9 @@ Cypress.Commands.add('createArticle', () => {
     })
         .then((response) => {
             expect(response.status).to.eq(201)
-            return response.body.article.slug
+            return {
+                slug: response.body.article.slug,
+                title: response.body.article.title
+            }
         })
 })

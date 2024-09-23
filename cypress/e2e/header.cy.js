@@ -6,8 +6,8 @@ describe('Header', () => {
         cy.visit('')
         cy.get(header.navbarLinks).should('be.visible')
             .and('have.length', 3)
+            .and('contain', 'Login')
             .and('contain', 'Home')
-            .and('contain', 'Sign in')
             .and('contain', 'Sign up')
     })
 

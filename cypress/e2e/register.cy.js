@@ -24,13 +24,13 @@ describe('Register', () => {
         cy.get(registration.emailField).type(this.email)
         cy.get(registration.passwordField).type('Cypress12')
         cy.get(registration.signUpButton).click()
-        cy.get(header.settingsLink).should('be.visible')
+        cy.get(header.navbarLinks).should('be.visible')
+            .and('have.length', 4)
+            .and('contain', 'cy')
     })
 
     it('check registration request body and response', function () {
-        const apiUrl = Cypress.env('apiUrl')
-
-        cy.intercept(`${apiUrl}/users`).as('loginRequest')
+        cy.intercept('/api/users').as('loginRequest')
         cy.get(registration.usernameField).type(this.username)
         cy.get(registration.emailField).type(this.email)
         cy.get(registration.passwordField).type('Cypress12{enter}')
@@ -44,6 +44,8 @@ describe('Register', () => {
             expect(xhr.response.body.user.email).to.eq(this.email)
             expect(xhr.response.body.user.token).not.to.eq(null)
         })
-        cy.get(header.settingsLink).should('be.visible')
+        cy.get(header.navbarLinks).should('be.visible')
+            .and('have.length', 4)
+            .and('contain', 'cy')
     })
 })

@@ -1,5 +1,6 @@
 import settings from '../selectors/settings.css'
 import profile from '../selectors/profile.css'
+import header from '../selectors/header.css'
 
 describe('Settings', () => {
     beforeEach(() => {
@@ -17,7 +18,11 @@ describe('Settings', () => {
         cy.get(settings.usernameField).clear().type(username)
         cy.get(settings.bioField).type('update settings')
         cy.get(settings.submitButton).click()
-        cy.url().should('eq', `${Cypress.config('baseUrl')}/@${username}`)
+        cy.get(header.navbarLinks).should('be.visible')
+            .and('have.length', 4)
+            .and('contain', 'updated_cy')
+        // navigate to profile page
+        cy.visit(`/profile/${username}`)
         cy.get(profile.savedBio).should('be.visible')
             .and('have.text', 'update settings')
         cy.get(profile.image)

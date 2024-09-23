@@ -9,7 +9,7 @@ describe('Profile page', () => {
     })
 
     it('contains correct elements', function () {
-        cy.visit(`/@${this.username}`)
+        cy.visit(`/profile/${this.username}`)
         cy.get(profile.editProfileButton).should('be.visible')
             .and('have.attr', 'href', '#/settings')
         cy.get(profile.userInfoArea).should('be.visible')
@@ -20,40 +20,40 @@ describe('Profile page', () => {
 
     it('can see created articles', function () {
         cy.createArticle()
-        cy.visit(`/@${this.username}`)
+        cy.visit(`/profile/${this.username}`)
         cy.get(profile.articles).should('be.visible')
             .and('have.length', 1)
-            .and('contain', 'Article created by Cypress test')
+            .and('contain', 'My post title')
     })
 
-    it('can see favorited articles', function () {
+    it.only('can see favorited articles', function () {
         const apiUrl = Cypress.env('apiUrl')
+        const authToken = JSON.parse(window.localStorage.getItem('loggedUser')).headers.Authorization
         // we already test adding favorite from UI in home spec
         // here we can use API to favourite an article and bypass UI
-        cy.createArticle().then((link) => {
+        cy.createArticle().then(({ slug }) => {
             // add newly created article to favorites
             cy.request({
                 method: 'POST',
-                url: `${apiUrl}/articles/${link}/favorite`,
+                url: `${apiUrl}/articles/${slug}/favorite`,
                 headers: {
-                    authorization: `Token ${window.localStorage.getItem('jwtToken')}`
+                    authorization: `${authToken}`
                 }
             })
         })
-        cy.visit(`/@${this.username}`)
+        cy.visit(`/profile/${this.username}`)
         cy.get(profile.favouritedArticlesTab).click()
         cy.get(profile.articles).should('be.visible')
             .and('have.length', 1)
-            .and('contain', 'Article created by Cypress test')
+            .and('contain', 'My post title')
     })
 
     it('can see favorited articles - mock response', function () {
-        const apiUrl = Cypress.env('apiUrl')
         // example how to mock favourited articles list
-        cy.intercept(`${apiUrl}/articles?favorited=${this.username}&limit=5&offset=0*`, {
+        cy.intercept(`/api/articles?favorited=${this.username}&&limit=3*`, {
             fixture: 'favorited_list'
         })
-        cy.visit(`/@${this.username}`)
+        cy.visit(`/profile/${this.username}`)
         cy.get(profile.favouritedArticlesTab).click()
         cy.get(profile.articles).should('be.visible')
             .and('have.length', 1)

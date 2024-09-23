@@ -22,7 +22,25 @@ Cypress.Commands.add('register', () => {
             expect(response.status).to.eq(201)
             // user is also logged in after registering
             // so we can just save token
-            window.localStorage.setItem('jwtToken', response.body.user.token)
+            // user is also logged in after registering
+            // so we can just save token
+            const bio = response.body.user.bio
+            const image = response.body.user.image
+            const token = response.body.user.token
+            const tokenData = {
+                headers: {
+                    Authorization: `Token ${token}`
+                },
+                isAuth: true,
+                loggedUser: {
+                    email: email,
+                    username: username,
+                    bio: bio,
+                    image: image,
+                    token: token
+                }
+            }
+            window.localStorage.setItem('loggedUser', JSON.stringify(tokenData))
 
             cy.log('**user created**')
             cy.log(`**email: ${email}**`)

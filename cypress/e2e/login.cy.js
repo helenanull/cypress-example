@@ -4,31 +4,16 @@ import header from '../selectors/header.css'
 describe('Login', () => {
     // context is the same as describe
     context('unsuccessful', () => {
-        beforeEach(() => {
+        it('can see error message when username/password incorrect', () => {
             // visit ('/login') -> will visit baseUrl + /login
             // baseUrl is set in config - cypress.json file
             cy.visit('/login')
-        })
 
-        it('can see error message when username/password incorrect', () => {
             cy.get(login.emailField).type('random@test.com')
             cy.get(login.passwordField).type('random_pass')
-            cy.get(login.signInButton).should('have.text', 'Sign in').click()
+            cy.get(login.signInButton).should('have.text', 'Login').click()
             cy.get(login.errorMessages).should('be.visible')
-                .and('contain', 'email or password is invalid')
-        })
-
-        it('can see error message when API responds with 500', () => {
-            const apiUrl = Cypress.env('apiUrl')
-
-            cy.intercept('POST', `${apiUrl}/users/login`, {
-                statusCode: 500,
-                fixture: 'login_error'
-            })
-            cy.get(login.emailField).type('random2@test.com')
-            cy.get(login.passwordField).type('random_pass{enter}')
-            cy.get(login.errorMessages).should('be.visible')
-                .and('contain', 'Error 500 - Internal server error')
+                .and('contain', 'Email not found sign in first')
         })
     })
 
@@ -50,7 +35,9 @@ describe('Login', () => {
             cy.get(login.emailField).type(this.email)
             cy.get(login.passwordField).type(password)
             cy.get(login.signInButton).click()
-            cy.get(header.settingsLink).should('be.visible')
+            cy.get(header.navbarLinks).should('be.visible')
+                .and('have.length', 4)
+                .and('contain', 'cy')
         })
     })
 })

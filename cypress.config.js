@@ -6,7 +6,7 @@ module.exports = defineConfig({
     numTestsKeptInMemory: 15,
     defaultCommandTimeout: 15000,
     env: {
-        apiUrl: 'https://api.realworld.io/api',
+        apiUrl: 'https://training.bigbyte.academy/api',
         oldApiUrl: 'https://conduit.productionready.io/api',
         device: 'desktop',
         email: 'test@test.com',
@@ -26,6 +26,6 @@ module.exports = defineConfig({
         setupNodeEvents: function (on, config) {
             return require('./cypress/plugins/index.js')(on, config)
         },
-        baseUrl: 'http://angularjs.realworld.io/#'
+        baseUrl: 'https://training.bigbyte.academy/#'
     }
 })

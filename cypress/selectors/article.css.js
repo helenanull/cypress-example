@@ -1,17 +1,17 @@
 module.exports = {
-    title: '[ng-bind="::$ctrl.article.title"]',
-    body: '[ng-bind-html*="ctrl.article.body"] p',
+    title: '.article-page h1',
+    body: ' .page .article-content p',
     editButton: 'h1 + article-actions [ui-sref*="ctrl.article.slug"]',
-    deleteButton: 'h1 + article-actions .btn-outline-danger',
+    deleteButton: '.article-actions .ion-trash-a',
     tags: '.tag-list li',
-    comments: '[ng-repeat*=".comments"] .card-block',
+    comments: '.comment-form+.card .card-block',
     commentField: '.card.comment-form textarea',
     postCommentButton: '.card.comment-form .btn',
-    commentUsername: '.comment-author.ng-binding',
+    commentUsername: '.card a:nth-child(2).comment-author ',
     banner: '.banner',
     author: '.banner .author',
-    followButton: '.banner follow-btn',
-    favoriteButton: '.banner favorite-btn',
+    followButton: '.banner .action-btn',
+    favoriteButton: ' .banner .btn-outline-primary',
     actions: '.article-actions',
-    commentTextForLoggedOutUsers: 'p[show-authed=false]'
+    commentTextForLoggedOutUsers: '.container.page .article-actions+.row span'
 }
