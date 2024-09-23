@@ -42,12 +42,12 @@ describe('Article', () => {
             .and('contain', 'training')
     })
 
-    it('logged out user can see article page', function () {
-        cy.createArticle().then((link) => {
+    it.only('logged out user can see article page', function () {
+        cy.createArticle().then(({ slug }) => {
             // log out to visit article as logged out user
             cy.clearCookies()
             cy.clearLocalStorage()
-            cy.visit(`/article/${link}`)
+            cy.visit(`/article/${slug}`)
         })
         cy.get(article.title).should('be.visible')
         cy.get(article.banner).should('be.visible')
@@ -65,8 +65,8 @@ describe('Article', () => {
     it('can edit an article', () => {
         // we already know if creating an article works or not from the first test
         // we can now use a shortcut (cy.createArticle() command) to test other scenarios
-        cy.createArticle().then((link) => {
-            cy.visit(`/editor/${link}`)
+        cy.createArticle().then(({ slug }) => {
+            cy.visit(`/editor/${slug}`)
         })
         cy.get(editor.titleField).should('be.visible')
         cy.get(editor.aboutField).should('be.visible')
@@ -82,8 +82,8 @@ describe('Article', () => {
 
     it('can delete an article', () => {
         cy.intercept('DELETE', '/api/articles/**').as('deleteRequest')
-        cy.createArticle().then((link) => {
-            cy.visit(`/article/${link}`)
+        cy.createArticle().then(({ slug }) => {
+            cy.visit(`/article/${slug}`)
         })
         cy.get(article.title).should('be.visible')
         cy.get(article.deleteButton).click()

@@ -5,9 +5,10 @@ describe('Comments', () => {
         cy.register().then((response) => {
             cy.wrap(response.username).as('username')
         })
-        cy.createArticle().then((link) => {
+        cy.createArticle().then(({ slug }) => {
+            // listen to comments request
             cy.intercept('/api/articles/*/comments').as('commentsRequest')
-            cy.visit(`/article/${link}`)
+            cy.visit(`/article/${slug}`)
             // wait for comments to be loaded before starting with tests
             cy.wait('@commentsRequest')
         })

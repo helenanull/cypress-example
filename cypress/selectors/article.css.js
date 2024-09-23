@@ -1,7 +1,6 @@
 module.exports = {
     title: '.article-page h1',
     body: ' .page .article-content p',
-    editButton: 'h1 + article-actions [ui-sref*="ctrl.article.slug"]',
     deleteButton: '.article-actions .ion-trash-a',
     tags: '.tag-list li',
     comments: '.comment-form+.card .card-block',

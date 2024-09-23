@@ -1,6 +1,6 @@
 # **Simple** E2E test suite with Cypress
 [![cypress-example](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/detailed/urshkd&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/urshkd/runs) :point_left: click here to see test results on Cypress dashboard
-> **application under test:** http://angularjs.realworld.io/
+> **application under test:** http://training.bigbyte.academy/
 
   🎉 Learn how to write these tests and more in our trainings [bigbyte.academy](https://bigbyte.academy) :tada:
 

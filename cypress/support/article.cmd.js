@@ -1,6 +1,6 @@
 Cypress.Commands.add('createArticle', () => {
     const apiUrl = Cypress.env('apiUrl')
-    const link = 'https://github.com/bigbytecy/bigbyte-example-project'
+    const link = 'https://github.com/helenanull/cypress-example'
     const authToken = JSON.parse(window.localStorage.getItem('loggedUser')).headers.Authorization
     const randomPostTitle = `My post title ${Math.random().toString().slice(2, 11)}`
 
